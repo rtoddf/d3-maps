@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<title>Interfaces - D3 Maps - DC Universe</title>
+		<link href="css/base.css" rel="stylesheet" />
+		<link href="css/poc-comic-universe.css" rel="stylesheet">
+	</head>
+
+	<body class="comic-universe">
+        <div class="flex-container">
+            <div class="flex-row">
+                <div class="flex-item">
+					<h3>Comic Universe</h3>
+					<p>Click on an image of a comic book character below. You will get a larger photo and a small bio on the right side of the map, as well as an animated marker where the character was born. There is also a bar chart of that characters abilities and their team affiliations. If you click on a team name, the images will change to the members of that team.</p>
+					<p>This visualization is not finished, nor is the data set complete. I am working to finish up both in the near future.</p>
+
+					<h3 class="team_title"></h3>
+					<div id="team_roster"></div>
+
+					<div class="display">
+						<div id="map"></div>
+						<div class="tooltip"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../scripts/lib/jquery/jquery.min.js"></script>
+		<script src="../scripts/lib/underscore-min.js"></script>
+		<script src="../scripts/lib/d3.min.js"></script>
+		<script src="../scripts/lib/topojson.js"></script>
+		<script src="scripts/poc-dc-universe.js"></script>
+		<script src="scripts/poc-comic-templates.js"></script>
+	</body>
+</html>

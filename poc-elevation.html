@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Interfaces - D3</title>
+		<link href="css/base.css" rel="stylesheet" />
+		<link href="css/maps.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<div class="flex-container">
+            <div class="flex-row">
+                <div class="flex-item">
+					<h3>Elevation Map and Chart*</h3>
+					<p>There are locations along a path. There is a circle at each location, and a black dashed line connects the points. The chart maps the elevations on a graph using 128 samples. The elevations are divided into five intervals - four above sea level and one below. Those intervals are displayed by different colors on the chart. You can hover over the elevation bars in the chart to see the elevations. The chart is done with D3.</p>
+					<p>This map plots a line from Victoria, Vancouver to Seattle, WA to Salem, OR to San Fancisco, CA to off the coast of CA (for some negative elevations) to Las Vegas, NV to Phoenix, AZ to Santa Fe, NM to Austin, TX.</p>
+				</div>
+			</div>
+
+			<div class="flex-row">
+                <div class="flex-item">
+                	<div id="map_canvas"></div>
+                </div>
+
+                <div class="flex-item display" data-weight="2">
+                	<div id="elevation_chart"></div>
+                </div>
+            </div>
+		</div>
+
+		<script src="../scripts/lib/jquery/jquery.min.js"></script>
+		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBfyhIPQOrDkciZola1lXIpfJgtD6Hr_M4"></script>
+		<script src="../scripts/lib/d3.v4.min.js"></script>
+		<script src="https://d3js.org/d3-selection-multi.v1.min.js"></script>
+		<script src="scripts/poc-elevation.js"></script>
+	</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Interfaces - D3</title>
+		<link href="css/base.css" rel="stylesheet" />
+		<link href="css/maps.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<div class="flex-container">
+            <div class="flex-row">
+            	<div class="flex-item">
+            		<p>The tan dot is the location of the Cox Reps office.</p>
+                    <hr>
+                    <p>The white dot is the city center. Its also the point that the map is centered on. The white dot is for reference only and will be removed.</p>
+                    <hr>
+                    <p><strong>Choose a city:</strong></p>
+                    <div class="form-group location_choice"></div>
+                </div>
+
+                <div class="flex-item">
+					<h3 class="city_name"></h3>
+                    <p class="address"></p>
+                    <p class="cityState"></p>
+                    <p class="email">e: <a href=""></a></p>
+                    <p>p: <span class="phone"></span></p>
+				</div>
+				<div class="flex-item">
+                	<div class="display">
+                        <div id="map"></div>
+                    </div>
+                </div>
+			</div>
+
+			<div class="flex-row">
+                
+            </div>
+		</div>
+
+		<script src="../scripts/lib/jquery/jquery.min.js"></script>
+		<script src="../scripts/lib/d3.min.js"></script>
+		<script src="../scripts/lib/topojson.js"></script>
+		<script src="scripts/legend.js"></script>
+		<script src="scripts/poc-drawing-cities.js"></script>
+	</body>
+</html>

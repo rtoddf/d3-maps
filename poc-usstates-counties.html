@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<title>Interfaces - D3</title>
+		<link href="css/base.css" rel="stylesheet" />
+		<link href="css/examples.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<div class="flex-container">
+			<div class="flex-row">
+				<div class="flex-item">
+					<h3>US States - <span class="state_name"></span></h3>
+					<p>Topojson provides state data for drawing each state. That data can be combined with county data to present all counties within a state. My plan is to add population, area, and other county-relevent data to the tooltips.</p>
+					<div class="legend">
+	                    <p>Choose a state, then hover over a county to get its name. </p>
+	                    <div class="form-group state_choice"></div>
+                    </div>
+					<div class="display">
+						<div id="map"></div>
+					</div>
+				</div>
+				<div class="flex-item"></div>
+			</div>
+		</div>
+
+		<script src="../scripts/lib/jquery/jquery.min.js"></script>
+		<script src="../scripts/lib/d3.v4.min.js"></script>
+		
+		
+
+<!-- 		<script src="https://d3js.org/d3-array.v1.min.js"></script>
+		<script src="https://d3js.org/d3-geo.v1.min.js"></script>
+
+		<script src="https://d3js.org/d3-selection.v1.min.js"></script> -->
+		<script src="https://d3js.org/d3-selection-multi.v1.min.js"></script>
+<!-- 		<script src="https://d3js.org/d3-ease.v1.min.js"></script>
+		<script src="https://d3js.org/d3-transition.v1.min.js"></script>
+
+		<script src="https://d3js.org/d3-collection.v1.min.js"></script>
+		<script src="https://d3js.org/d3-dispatch.v1.min.js"></script>
+		<script src="https://d3js.org/d3-request.v1.min.js"></script> -->
+
+		<script src="http://d3js.org/topojson.v1.min.js"></script>
+
+		<script src="scripts/legend-states.js"></script>
+		<script src="scripts/poc-usstates-counties.js"></script>
+	</body>
+</html>

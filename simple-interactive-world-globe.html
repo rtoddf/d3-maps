@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Interfaces - D3</title>
+        <link href="css/base.css" rel="stylesheet" />
+		<link href="css/maps.css" rel="stylesheet" />
+<!-- 		<link href="less/interactive_world_globe.less" rel="stylesheet/less"> -->
+	</head>
+
+	<body>
+		<div class="flex-container">
+            <div class="flex-row">
+                <div class="flex-item" data-weight=2>
+					<h3>Interactive World Globe*</h3>
+					<p>bug with the hover</p>
+					<p>Hover over a country to get its name. You can choose a country from the dropdown, and the globe will rotate to that country and highlight. If you want, you can also drag the land areas of the globe to rotate.</p>
+
+					<div id="countries"></div>
+
+					<div class="interactive display">
+						<div id="example"></div>
+					</div>
+				</div>
+				<div class="flex-item"></div>
+			</div>
+		</div>
+
+		<script src="../scripts/lib/jquery/jquery.min.js"></script>
+		<script src="../scripts/lib/underscore-min.js"></script>
+        <script src="../scripts/lib/d3.v4.min.js"></script>
+        <script src="https://d3js.org/d3-selection-multi.v1.min.js"></script>
+        <script src="http://d3js.org/d3-geo-projection.v1.min.js"></script>
+        <script src="http://d3js.org/topojson.v1.min.js"></script>
+		<script src="scripts/simple-interactive-world-globe.js"></script>
+	</body>
+</html>

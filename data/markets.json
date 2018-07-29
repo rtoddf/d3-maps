@@ -1,0 +1,940 @@
+[
+    {
+        "id": 13,
+        "code": "GA",
+        "name": "Georgia",
+        "properties": [
+            {
+                "id": 1,
+                "name": "atlanta",
+                "code": "GA",
+                "tooltip": "Atlanta, GA",
+                "latlon": [33.748995, -84.387982],
+                "television": [
+                    {
+                        "name": "WSB-TV - Channel 2",
+                        "type": ["TV", "Website"],
+                        "format": "",
+                        "market": "Atlanta, GA",
+                        "frequency": "",
+                        "affiliate": "ABC",
+                        "image": "wsbtv.png",
+                        "link": "http://www.wsbtv.com/"
+                    }
+                ],
+                "radio": [
+                    {
+                        "name": "WSB-FM B98.5",
+                        "type": ["Radio", "Website"],
+                        "format": "Adult Contemporary",
+                        "market": "Atlanta, GA",
+                        "frequency": "98.5 MHz",
+                        "affiliate": "",
+                        "image": "b985.png",
+                        "link": "http://www.b985.com/"
+                    },
+                    {
+                        "name": "WALR - KISS 104FM",
+                        "type": ["Radio", "Website"],
+                        "format": "Urban Adult",
+                        "market": "Atlanta, GA",
+                        "frequency": "104.1 MHz",
+                        "affiliate": "",
+                        "image": "kiss104fm.png",
+                        "link": "http://www.kiss104fm.com/"
+                    },
+                    {
+                        "name": "WSRV - 97.1FM",
+                        "type": ["Radio", "Website"],
+                        "format": "Classic Hits",
+                        "market": "Atlanta, GA",
+                        "frequency": "97.1 MHz",
+                        "affiliate": "",
+                        "image": "971theriver.png",
+                        "link": "http://www.971theriver.com/"
+                    },
+                    {
+                        "name": "News 95.5 and AM750 WSB",
+                        "type": ["Radio", "Website"],
+                        "format": "News/Talk",
+                        "market": "Atlanta, GA",
+                        "frequency": "750 kHz/95.5 MHz",
+                        "affiliate": "",
+                        "image": "wsbradio.png",
+                        "link": "http://www.wsbradio.com"
+                    },
+                    {
+                        "name": "WTSH - X107.1FM",
+                        "type": ["Radio", "Website"],
+                        "format": "Top 40 - Alternative",
+                        "market": "Atlanta, GA",
+                        "frequency": "107.1 MHZ",
+                        "affiliate": "",
+                        "image": "x1071atlanta.png",
+                        "link": "http://www.x1071atlanta.com"
+                    }
+                ],
+                "digital": [],
+                "newspaper": [
+                    {
+                        "name": "Atlanta Journal Constitution",
+                        "type": ["Daily Newspaper", "Website"],
+                        "format": "",
+                        "market": "Atlanta, GA",
+                        "frequency": "",
+                        "affiliate": "",
+                        "image": "ajc.png",
+                        "link": "http://www.ajc.com"
+                    },
+                    {
+                        "name": "Access Atlanta",
+                        "type": ["Daily Newspaper", "Website"],
+                        "format": "",
+                        "market": "Atlanta, GA",
+                        "frequency": "",
+                        "affiliate": "",
+                        "image": "accessatlanta.png",
+                        "link": "http://www.accessatlanta.com"
+                    }
+                ],
+                "directmail": []
+            },
+            {
+                "id": 2,
+                "name": "athens",
+                "code": "GA",
+                "tooltip": "Athens, GA",
+                "latlon": [33.951935, -83.357567],
+                "television": [],
+                "radio": [
+                    {
+                        "name": "WPUP- 100.1 The Bulldog",
+                        "type": ["Radio", "Website"],
+                        "format": "Rock",
+                        "market": "Athens, GA",
+                        "frequency": "100.1 MHz",
+                        "affiliate": "",
+                        "image": "powerathens.png",
+                        "link": "http://www.powerathens.com/"
+                    },
+                    {
+                        "name": "WGMG - Magic 102.1",
+                        "type": ["Radio", "Website"],
+                        "format": "Adult Contemporary",
+                        "market": "Athens, GA",
+                        "frequency": "102.1 MHz",
+                        "affiliate": "",
+                        "image": "magic1021.png",
+                        "link": "http://www.magic1021.com/"
+                    },
+                    {
+                        "name": "WXKT - 103.7 FM",
+                        "type": ["Radio", "Website"],
+                        "format": "News/Talk",
+                        "market": "Athens, GA",
+                        "frequency": "103.7 MHz",
+                        "affiliate": "UGA",
+                        "image": "1037chuckfm.png",
+                        "link": "http://www.1037chuckfm.com/"
+                    },
+                    {
+                        "name": "WRFC - AM 960 - 960 The Ref",
+                        "type": ["Radio", "Website"],
+                        "format": "Sports",
+                        "market": "Athens, GA",
+                        "frequency": "960 kHz",
+                        "affiliate": "ESPN, UGA",
+                        "image": "960theref.png",
+                        "link": "http://www.960theref.com"
+                    },
+                    {
+                        "name": "WNGC - North Georgia Country 106.1",
+                        "type": ["Radio", "Website"],
+                        "format": "Country",
+                        "market": "Athens/Gainesville/Greater Atlanta",
+                        "frequency": "106.1 FM & 107.1 FM",
+                        "affiliate": "UGA",
+                        "image": "yourgeorgiacountry.png",
+                        "link": "http://www.yourgeorgiacountry.com/"
+                    },
+                    {
+                        "name": "WGAU - AM 1340 - News Talk 1340",
+                        "type": ["Radio", "Website"],
+                        "format": "News/Talk",
+                        "market": "Athens, GA",
+                        "frequency": "1340 kHz",
+                        "affiliate": "Fox News",
+                        "image": "wgauradio.png",
+                        "link": "http://www.wgauradio.com/"
+                    }
+                ],
+                "newspaper": [],
+                "digital": [],
+                "directmail": []
+            }
+        ]
+    },
+    {
+        "id": 48,
+        "code": "TX",
+        "name": "Texas",
+        "properties": [
+            {
+                "id": 1,
+                "name": "austin",
+                "code": "TX",
+                "tooltip": "Austin, TX",
+                "latlon": [30.267153, -97.743061],
+                "television": [],
+                "radio": [],
+                "digital": [],
+                "newspaper": [
+                    {
+                        "name": "Austin American-Statesman",
+                        "type": ["Daily Newspaper", "Website"],
+                        "format": "",
+                        "market": "Austin, TX",
+                        "frequency": "",
+                        "affiliate": "",
+                        "image": "ajc.png",
+                        "link": "http://www.statesman.com"
+                    },
+                    {
+                        "name": "Ahorasi.com",
+                        "type": ["Daily Newspaper", "Website"],
+                        "format": "",
+                        "market": "Austin, TX",
+                        "frequency": "",
+                        "affiliate": "",
+                        "image": "ahorasi.png",
+                        "link": "http://www.ahorasi.com/s/ahora-si/"
+                    },
+                    {
+                        "name": "Austin360.com",
+                        "type": ["Radio", "Website"],
+                        "format": "Entertainment, Events, Food, Movies, Music",
+                        "market": "Austin, TX",
+                        "frequency": "",
+                        "affiliate": "",
+                        "image": "austin360.png",
+                        "link": "http://www.austin360.com"
+                    }
+                ],
+                "directmail": []
+            },
+            {
+                "id": 2,
+                "name": "houston",
+                "code": "TX",
+                "tooltip": "Houston, TX",
+                "latlon": [29.760427, -95.369803],
+                "television": [],
+                "radio": [
+                    {
+                        "name": "KHPT-FM | 106.9 The Zone",
+                        "type": ["Radio", "Website"],
+                        "format": "80's",
+                        "market": "Houston, TX",
+                        "frequency": "106.9 MHz",
+                        "affiliate": "",
+                        "image": "houstonseagle.png",
+                        "link": "http://www.houstonseagle.com/"
+                    },
+                    {
+                        "name": "KKBQ-FM | 92.9 The New 93Q",
+                        "type": ["Radio", "Website"],
+                        "format": "Country",
+                        "market": "Houston, TX",
+                        "frequency": "92.9 MHz",
+                        "affiliate": "",
+                        "image": "thenew93q.png",
+                        "link": "http://www.thenew93q.com"
+                    },
+                    {
+                        "name": "KTHT-FM | 97.1 Country Legends",
+                        "type": ["Radio", "Website"],
+                        "format": "Country",
+                        "market": "Houston, TX",
+                        "frequency": "97.1 MHz",
+                        "affiliate": "",
+                        "image": "countrylegends971.png",
+                        "link": "http://www.countrylegends971.com"
+                    }
+                ],
+                "digital": [],
+                "newspaper": [],
+                "directmail": []
+            },
+            {
+                "id": 3,
+                "name": "san antonio",
+                "code": "TX",
+                "tooltip": "San Antonio, TX",
+                "latlon": [29.424122, -98.493628],
+                "television": [],
+                "radio": [
+                    {
+                        "name": "KISS FM Radio - Active Rock 99.5FM",
+                        "type": ["Radio", "Website"],
+                        "format": "Active Rock",
+                        "market": "San Antonio, TX",
+                        "frequency": "99.5 MHz",
+                        "affiliate": "",
+                        "image": "kissrocks.png",
+                        "link": "http://www.kissrocks.com"
+                    },
+                    {
+                        "name": "KCYY FM Radio - Country 100.3FM",
+                        "type": ["Radio", "Website"],
+                        "format": "Country",
+                        "market": "San Antonio, TX",
+                        "frequency": "100.3 MHz",
+                        "affiliate": "",
+                        "image": "y100fm.png",
+                        "link": "http://www.y100fm.com"
+                    },
+                    {
+                        "name": "KONO FM Radio - Classic Hits 101.1 FM",
+                        "type": ["Radio", "Website"],
+                        "format": "Classic Hits",
+                        "market": "San Antonio, TX",
+                        "frequency": "860 kHz",
+                        "affiliate": "",
+                        "image": "kono1011.png",
+                        "link": "http://www.kono1011.com"
+                    },
+                    {
+                        "name": "KONO AM Radio - Classic Hits 860AM",
+                        "type": ["Radio", "Website"],
+                        "format": "Sports Radio",
+                        "market": "San Antonio, TX",
+                        "frequency": "860 kHz",
+                        "affiliate": "",
+                        "image": "sportsradio860.png",
+                        "link": "http://www.sportsradio860.com/"
+                    },
+                    {
+                        "name": "KSMG FM Radio - Hot AC 105.3 FM",
+                        "type": ["Radio", "Website"],
+                        "format": "Hot Adult",
+                        "market": "San Antonio, TX",
+                        "frequency": "105.3 MHz",
+                        "affiliate": "",
+                        "image": "magic1053.png",
+                        "link": "http://www.magic1053.com"
+                    },
+                    {
+                        "name": "KTKX FM Radio - Classic Rock 106.7FM",
+                        "type": ["Radio", "Website"],
+                        "format": "Classic Rock",
+                        "market": "San Antonio, TX",
+                        "frequency": "106.7 MHz",
+                        "affiliate": "",
+                        "image": "eaglesanantonio.png",
+                        "link": "http://www.eaglesanantonio.com/"
+                    },
+                    {
+                        "name": "KKYX AM Radio - Classic Country 680AM",
+                        "type": ["Radio", "Website"],
+                        "format": "Classic Country",
+                        "market": "San Antonio, TX",
+                        "frequency": "680 kHz",
+                        "affiliate": "",
+                        "image": "kkyx.png",
+                        "link": "http://www.kkyx.com"
+                    }
+                ],
+                "digital": [],
+                "newspaper": [],
+                "directmail": []
+            }
+        ]
+    },
+    {
+        "id": 40,
+        "code": "OK",
+        "name": "Oklahoma",
+        "properties": [
+            {
+                "id": 1,
+                "name": "tulsa",
+                "code": "OK",
+                "tooltip": "Tulsa, OK",
+                "latlon": [36.153982, -95.992775],
+                "television": [
+                    {
+                        "name": "KOKI (Fox)",
+                        "type": ["TV", "Website"],
+                        "format": "",
+                        "market": "Tulsa, OK",
+                        "frequency": "",
+                        "affiliate": "",
+                        "image": "koki.png",
+                        "link": "http://www.fox23.com"
+                    },
+                    {
+                        "name": "KMYT (MyNet)",
+                        "type": ["TV", "Website"],
+                        "format": "",
+                        "market": "Tulsa, OK",
+                        "frequency": "",
+                        "affiliate": "",
+                        "image": "kmyt.png",
+                        "link": "http://www.fox23.com/s/station/my41tulsa/"
+                    }
+                ],
+                "radio": [
+                    {
+                        "name": "KJSR-FM | 103.3",
+                        "type": ["Radio", "Website"],
+                        "format": "Classic Rock",
+                        "market": "Tulsa, OK",
+                        "frequency": "103.3 MHz",
+                        "affiliate": "",
+                        "image": "1033theeagle.png",
+                        "link": "http://www.1033theeagle.com/"
+                    }
+                ],
+                "digital": [],
+                "newspaper": [],
+                "directmail": []
+            }
+        ]
+    },
+    {
+        "id": 53,
+        "code": "WA",
+        "name": "Washington",
+        "properties": [
+            {
+                "id": 1,
+                "name": "seattle",
+                "code": "WA",
+                "tooltip": "Seattle, WA",
+                "latlon": [47.606209, -122.332071],
+                "television": [
+                    {
+                        "name": "KIRO-TV - Channel 7",
+                        "type": ["TV", "Website"],
+                        "format": "",
+                        "market": "Tulsa, OK",
+                        "frequency": "",
+                        "affiliate": "",
+                        "image": "kirotv.png",
+                        "link": "http://www.kirotv.com"
+                    }
+                ],
+                "radio": [],
+                "digital": [],
+                "newspaper": [],
+                "directmail": []
+            }
+        ]
+    },
+    {
+        "id": 47,
+        "code": "TN",
+        "name": "Tennessee",
+        "properties": [
+            {
+                "id": 1,
+                "name": "memphis",
+                "code": "TN",
+                "tooltip": "Memphis, TN",
+                "latlon": [35.149534, -90.04898],
+                "television": [
+                    {
+                        "name": "WHBQ-TV | Fox 13",
+                        "type": ["TV", "Website"],
+                        "format": "",
+                        "market": "Memphis, TN",
+                        "frequency": "",
+                        "affiliate": "",
+                        "image": "myfoxmemphis.png",
+                        "link": "http://www.myfoxmemphis.com"
+                    }
+                ],
+                "radio": [],
+                "digital": [],
+                "newspaper": [],
+                "directmail": []
+            }
+        ]
+    },
+    {
+        "id": 36,
+        "code": "NY",
+        "name": "New York",
+        "properties": [
+            {
+                "id": 1,
+                "name": "long island",
+                "code": "NY",
+                "tooltip": "Long Island, NY",
+                "latlon": [40.789142, -73.13496],
+                "television": [],
+                "radio": [
+                    {
+                        "name": "WBLI-FM | 106.1",
+                        "type": ["Radio", "Website"],
+                        "format": "Top 40",
+                        "market": "Long Island, NY",
+                        "frequency": "106.1 Mhz",
+                        "affiliate": "",
+                        "image": "wbli.png",
+                        "link": "http://www.wbli.com"
+                    },
+                    {
+                        "name": "WBAB-FM | 102.3",
+                        "type": ["Radio", "Website"],
+                        "format": "Rock",
+                        "market": "Long Island, NY",
+                        "frequency": "106.1 Mhz",
+                        "affiliate": "",
+                        "image": "wbab.png",
+                        "link": "http://www.wbab.com"
+                    }
+                ],
+                "digital": [],
+                "newspaper": [],
+                "directmail": []
+            }
+        ]
+    },
+    {
+        "id": 39,
+        "code": "OH",
+        "name": "Ohio",
+        "properties": [
+            {
+                "id": 1,
+                "name": "dayton",
+                "code": "OH",
+                "tooltip": "Dayton, OH",
+                "latlon": [39.758948, -84.191607],
+                "television": [
+                    {
+                        "name": "WHIO TV - Channel 7",
+                        "type": ["TV", "Website"],
+                        "format": "",
+                        "market": "Dayton, OH",
+                        "frequency": "",
+                        "affiliate": "",
+                        "image": "whio.png",
+                        "link": "http://www.whio.com/"
+                    }
+                ],
+                "radio": [
+                    {
+                        "name": "WHIO-AM | AM 1290 News Talk Radio WHIO",
+                        "type": ["Radio", "Website"],
+                        "format": "",
+                        "market": "Dayton, OH",
+                        "frequency": "1290 kHz",
+                        "affiliate": "",
+                        "image": "newstalkradiowhio.png",
+                        "link": "www.newstalkradiowhio.com"
+                    },
+                    {
+                        "name": "WHIO-FM | 95.7 FM News Talk Radio WHIO",
+                        "type": ["Radio", "Website"],
+                        "format": "",
+                        "market": "Springfield, OH",
+                        "frequency": "95.7 MHz",
+                        "affiliate": "",
+                        "image": "newstalkradiowhio.png",
+                        "link": "www.newstalkradiowhio.com"
+                    }
+                ],
+                "digital": [],
+                "newspaper": [
+                    {
+                        "name": "Dayton Daily News",
+                        "type": ["Daily Newspaper", "Website"],
+                        "format": "",
+                        "market": "Dayton, OH",
+                        "frequency": "",
+                        "affiliate": "",
+                        "image": "daytondailynews.png",
+                        "link": "www.daytondailynews.com"
+                    },
+                    {
+                        "name": "Springfield News-Sun",
+                        "type": ["Daily Newspaper", "Website"],
+                        "format": "",
+                        "market": "Springfield, OH",
+                        "frequency": "",
+                        "affiliate": "",
+                        "image": "springfieldnewssun.png",
+                        "link": "www.springfieldnewssun.com"
+                    },
+                    {
+                        "name": "JournalNews",
+                        "type": ["Daily Newspaper", "Website"],
+                        "format": "",
+                        "market": "Hamilton, OH",
+                        "frequency": "",
+                        "affiliate": "",
+                        "image": "journal-news.png",
+                        "link": "www.journal-news.com"
+                    },
+                    {
+                        "name": "Today's Pulse",
+                        "type": ["Weekly Newspaper", "Website"],
+                        "format": "",
+                        "market": "Liberty Township, OH",
+                        "frequency": "",
+                        "affiliate": "",
+                        "image": "todayspulse.png",
+                        "link": "http://www.todayspulse.com/"
+                    }
+                ],
+                "directmail": []
+            }
+        ]
+    },
+    {
+        "id": 12,
+        "code": "FL",
+        "name": "Florida",
+        "properties": [
+            {
+                "id": 1,
+                "name": "tampa",
+                "code": "FL",
+                "tooltip": "Tampa, FL",
+                "latlon": [27.950575, -82.457178],
+                "television": [],
+                "radio": [
+                    {
+                        "name": "WDUV-FM | 105.5",
+                        "type": ["Radio", "Website"],
+                        "format": "Adult Contemporary",
+                        "market": "Tampa, FL",
+                        "frequency": "105.5 MHz",
+                        "affiliate": "",
+                        "image": "wduv.png",
+                        "link": "http://www.wduv.com"
+                    }
+                ],
+                "digital": [],
+                "newspaper": [],
+                "directmail": []
+            },
+            {
+                "id": 2,
+                "name": "palm beach",
+                "code": "FL",
+                "tooltip": "Palm Beach, FL",
+                "latlon": [26.705621, -80.03643],
+                "television": [],
+                "radio": [],
+                "digital": [],
+                "newspaper": [
+                    {
+                        "name": "Palm Beach Post",
+                        "type": ["Newspaper", "Website"],
+                        "format": "",
+                        "market": "Palm Beach, FL",
+                        "frequency": "",
+                        "affiliate": "",
+                        "image": "palmbeachpost.png",
+                        "link": "http://www.palmbeachpost.com"
+                    },
+                    {
+                        "name": "Palm Beach Daily News",
+                        "type": ["Newspaper", "Website"],
+                        "format": "",
+                        "market": "Palm Beach, FL",
+                        "frequency": "",
+                        "affiliate": "",
+                        "image": "palmbeachdailynews.png",
+                        "link": "http://www.palmbeachdailynews.com"
+                    }
+                ],
+                "directmail": []
+            },
+            {
+                "id": 3,
+                "name": "orlando",
+                "code": "FL",
+                "tooltip": "Orlando, FL",
+                "latlon": [28.538335, -81.379236],
+                "television": [
+                    {
+                        "name": "WFTV TV - Channel 9",
+                        "type": ["Television", "Website"],
+                        "format": "",
+                        "market": "Orlando, FL",
+                        "frequency": "",
+                        "affiliate": "",
+                        "image": "wftv.png",
+                        "link": "http://www.wftv.com"
+                    },
+                    {
+                        "name": "WRDQ TV - TV 27",
+                        "type": ["Television", "Website"],
+                        "format": "",
+                        "market": "Orlando, FL",
+                        "frequency": "",
+                        "affiliate": "",
+                        "image": "wrdq.png",
+                        "link": "http://www.wftv.com/wrdq/"
+                    }
+                ],
+                "radio": [
+                    {
+                        "name": "WDBO-AM - News-Talk 580 WDBO",
+                        "type": ["Radio", "Website"],
+                        "format": "",
+                        "market": "Orlando, FL",
+                        "frequency": "",
+                        "affiliate": "",
+                        "image": "wdbo.png",
+                        "link": "http://www.wdbo.com"
+                    }
+                ],
+                "digital": [],
+                "newspaper": [],
+                "directmail": []
+            },
+            {
+                "id": 4,
+                "name": "jacksonville",
+                "code": "FL",
+                "tooltip": "Jacksonville, FL",
+                "latlon": [30.332184, -81.655651],
+                "television": [
+                    {
+                        "name": "WTEV (CBS)",
+                        "type": ["Television", "Website"],
+                        "format": "",
+                        "market": "Jacksonville, FL",
+                        "frequency": "",
+                        "affiliate": "",
+                        "image": "actionnewsjax.png",
+                        "link": "http://www.actionnewsjax.com/"
+                    },
+                    {
+                        "name": "WAWS (FOX)",
+                        "type": ["Television", "Website"],
+                        "format": "",
+                        "market": "Jacksonville, FL",
+                        "frequency": "",
+                        "affiliate": "",
+                        "image": "fox30jax.png",
+                        "link": "http://www.fox30jax.com/"
+                    }
+                ],
+                "radio": [
+                    {
+                        "name": "WAPE-FM | 95.1 WAPE",
+                        "type": ["Radio", "Website"],
+                        "format": "CHR",
+                        "market": "Jacksonville, FL",
+                        "frequency": "95.1 MHz",
+                        "affiliate": "",
+                        "image": "wape.png",
+                        "link": "http://www.wape.com/"
+                    }
+                ],
+                "digital": [],
+                "newspaper": [],
+                "directmail": []
+            },
+            {
+                "id": 5,
+                "name": "miami",
+                "code": "FL",
+                "tooltip": "Miami, FL",
+                "latlon": [25.761680, -80.19179],
+                "television": [],
+                "radio": [
+                    {
+                        "name": "WFEZ-FM | 93.1 - Easy 93",
+                        "type": ["Radio", "Website"],
+                        "format": "",
+                        "market": "Miami, FL",
+                        "frequency": "93.1 MHz",
+                        "affiliate": "",
+                        "image": "easy93.png",
+                        "link": "www.easy93.com"
+                    },
+                    {
+                        "name": "WEDR-FM | 99.1 The Jamz",
+                        "type": ["Radio", "Website"],
+                        "format": "",
+                        "market": "Miami, FL",
+                        "frequency": "99.1 MHz",
+                        "affiliate": "",
+                        "image": "wedr.png",
+                        "link": "www.wedr.com"
+                    }
+                ],
+                "digital": [],
+                "newspaper": [],                          
+                "directmail": []
+            }
+        ]
+    },
+    {
+        "id": 37,
+        "code": "NC",
+        "name": "North Carolina",
+        "properties": [
+            {
+                "id": 1,
+                "name": "charlotte",
+                "code": "NC",
+                "tooltip": "Charlotte, NC",
+                "latlon": [35.227087, -80.843127],
+                "television": [
+                    {
+                        "name": "WSOC-TV | Channel 9",
+                        "type": ["Television", "Website"],
+                        "format": "",
+                        "market": "Charlotte, NC",
+                        "frequency": "",
+                        "affiliate": "",
+                        "image": "wsoctv.png",
+                        "link": "http://www.wsoctv.com"
+                    },
+                    {
+                        "name": "WAXN-TV | Channel 64",
+                        "type": ["Television", "Website"],
+                        "format": "",
+                        "market": "Charlotte, NC",
+                        "frequency": "",
+                        "affiliate": "",
+                        "image": "carolinastv64.png",
+                        "link": "http://www.wsoctv.com/carolinastv64/"
+                    }
+                ],
+                "radio": [],
+                "digital": [],
+                "newspaper": [],
+                "directmail": []
+            }
+        ]
+    },
+    {
+        "id": 25,
+        "code": "MA",
+        "name": "Massachusetts",
+        "properties": [
+            {
+                "id": 1,
+                "name": "boston",
+                "code": "MA",
+                "tooltip": "Boston, MA",
+                "latlon": [42.360082, -71.05888],
+                "television": [
+                    {
+                        "name": "WFXT-TV | Fox 25",
+                        "type": ["Television", "Website"],
+                        "format": "",
+                        "market": "Boston, MA",
+                        "frequency": "",
+                        "affiliate": "",
+                        "image": "myfoxboston.png",
+                        "link": "http://www.myfoxboston.com"
+                    }
+                ],
+                "radio": [],
+                "digital": [],
+                "newspaper": [],
+                "directmail": []
+            }
+        ]
+    },
+    {
+        "id": 42,
+        "code": "PA",
+        "name": "Pennsylvania",
+        "properties": [
+            {
+                "id": 1,
+                "name": "pittsburgh",
+                "code": "PA",
+                "tooltip": "Pittsburgh, PA",
+                "latlon": [40.440625, -79.995886],
+                "television": [
+                    {
+                        "name": "WPXI TV - Channel 11",
+                        "type": ["Television", "Website"],
+                        "format": "",
+                        "market": "Pittsburgh, PA",
+                        "frequency": "",
+                        "affiliate": "",
+                        "image": "wpxi.png",
+                        "link": "http://www.wpxi.com"
+                    }
+                ],
+                "radio": [],
+                "digital": [],
+                "newspaper": [],
+                "directmail": []
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "code": "CA",
+        "name": "California",
+        "properties": [
+            {
+                "id": 1,
+                "name": "san francisco",
+                "code": "CA",
+                "tooltip": "San Francisco, CA",
+                "latlon": [37.774929, -122.419416],
+                "television": [],
+                "radio": [],
+                "digital": [
+                    {
+                        "name": "WPXI TV - Channel 11",
+                        "type": ["Television", "Website"],
+                        "format": "",
+                        "market": "Pittsburgh, PA",
+                        "frequency": "",
+                        "affiliate": "",
+                        "image": "wpxi.png",
+                        "link": "http://www.wpxi.com"
+                    }
+                ],
+                "newspaper": [],
+                "directmail": []
+            }
+        ]
+    },
+    {
+        "id": 31,
+        "code": "NE",
+        "name": "Nebraska",
+        "properties": [
+            {
+                "id": 1,
+                "name": "lincoln",
+                "code": "NE",
+                "tooltip": "Lincoln, NE",
+                "latlon": [40.825763, -96.685198],
+                "television": [],
+                "radio": [],
+                "digital": [],
+                "newspaper": [],
+                "directmail": [
+                    {
+                        "name": "WPXI TV - Channel 11",
+                        "type": ["Television", "Website"],
+                        "format": "",
+                        "market": "Pittsburgh, PA",
+                        "frequency": "",
+                        "affiliate": "",
+                        "image": "wpxi.png",
+                        "link": "http://www.wpxi.com"
+                    }
+                ]
+            }
+        ]
+    }
+]

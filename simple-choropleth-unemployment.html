@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Interfaces - D3</title>
+        <link href="css/base.css" rel="stylesheet" />
+        <link href="css/maps.css" rel="stylesheet" />
+    </head>
+
+    <body>
+        <div class="flex-container">
+            <div class="flex-row">
+                <div class="flex-item" data-weight=2>
+                    <h3>Unemployment Choropleth*</h3>
+                    <p>A Cloropleth map is a map that uses differences in shading, coloring, or the placing of symbols within predefined areas to indicate the average values of a property or quantity in those areas.</p>
+                    <p>This map shows (past) unemployment data. I need to update it with more recent data from the Bureau of Labor Statistics.</p>
+
+                    <div class="us_map choropleth display">
+                        <div id="map"></div>
+                    </div>
+                </div>
+                <div class="flex-item"></div>
+            </div>
+        </div>
+
+        <script src="../scripts/lib/jquery/jquery.min.js"></script>
+        <script src="../scripts/lib/d3.v4.min.js"></script>
+        <script src="https://d3js.org/d3-selection-multi.v1.min.js"></script>
+        <script src="http://d3js.org/d3-geo-projection.v1.min.js"></script>
+        <script src="http://d3js.org/topojson.v1.min.js"></script>
+        <script src="scripts/base.js"></script>
+        <script src="scripts/simple-choropleth-unemployment.js"></script>
+    </body>
+</html>

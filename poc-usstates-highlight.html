@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Interfaces - D3</title>
+		<link href="css/base.css" rel="stylesheet" />
+		<link href="css/maps.css" rel="stylesheet" />
+		<link href="css/rtodd/rtodd.css" rel="stylesheet">
+	</head>
+
+	<body>
+		<div class="flex-container">
+            <div class="flex-row">
+                <div class="flex-item">
+					<h3>US States</h3>
+                    <p>A standard map of the United States using the Albers USA projection. Each state has been given a tooltip withe name of the state, as well as its abbreviation. More data can be added to the tooltip if desired.</p>
+                    <p>The three buttons at the top of the map change the colors of the states based on political data. Click on a button to change the information on the map.</p>
+                    <p><em>Data needs to be updated</em></p>
+                    <div class="btn-group btn-group-justified" role="group">
+                        <a class="btn" rel="program-share-modal" data-type="party" role="button">
+                            <i class="icon-politics-politician"></i> <span>Political Parties</span>
+                        </a>
+                        <a class="btn" rel="program-share-modal" data-type="same_sex_marriage" role="button">
+                            <i class="icon-social-same-sex-1"></i> <span>Same Sex Marriage</span>
+                        </a>
+                        <a class="btn" rel="program-share-modal" data-type="age_of_consent" role="button">
+                            <i class="icon-tech-graph"></i> <span>Age of Consent</span>
+                        </a>
+                        <!--
+                        <a class="btn" rel="program-share-modal" data-type="watch" role="button">
+                            <i class="icon-tech-graph"></i> <span>Watch</span>
+                        </a>
+                        -->
+                    </div>
+				</div>
+			</div>
+
+			<div class="flex-row">
+                <div class="flex-item">
+                	<div class="col-md-12 us_map state_view display">
+	                    <div id="legend"></div>
+	                    <div id="map"></div>
+	                </div>
+                </div>
+            </div>
+		</div>
+
+		<script src="../scripts/lib/jquery/jquery.min.js"></script>
+		<script src="../scripts/lib/d3.min.js"></script>
+		<script src="../scripts/lib/topojson.js"></script>
+		<script src="scripts/poc-usstates-highlight.js"></script>
+	</body>
+</html>

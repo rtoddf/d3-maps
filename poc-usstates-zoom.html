@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Interfaces - D3</title>
+		<link href="css/base.css" rel="stylesheet" />
+		<link href="css/maps.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<div class="flex-container">
+            <div class="flex-row">
+                <div class="flex-item">
+					<h3>US with Zoom</h3>
+                    <p>This map of the US is constructed in the same manner as the previous map, but adds a "click-to-zoom" feature. The race data is from the USA Today US Census API - 2010.</p>
+                    <ul>
+                        <li>Republican states are in red, Democratic states are in blue, and states that are both Republican and Democrat are in purple.</li>
+                        <li>Hover over a state to get quick info.</li>
+                        <li>Click on a state to zoom in.</li>
+                        <li>Click in the white area to zoom back out.</li>
+                    </ul>
+                    <p class="note">Needs a legend</p>
+				</div>
+			</div>
+
+			<div class="flex-row">
+                <div class="flex-item">
+                	<div class="us_map us_zoom display">
+	                    <div id="map"></div>
+	                </div>
+                </div>
+            </div>
+		</div>
+
+		<script src="scripts/jquery-1.10.2.min.js"></script>
+		<script src="../scripts/lib/d3.min.js"></script>
+		<script src="../scripts/lib/topojson.js"></script>
+		<script src="../scripts/lib/underscore-min.js"></script>
+        <script src="../scripts/underscore_mixins.js"></script>
+		<script src="scripts/poc-usstates-zoom.js"></script>
+	</body>
+</html>

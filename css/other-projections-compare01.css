@@ -1,0 +1,90 @@
+.flex-container {
+	width: 90%;
+}
+
+text {
+	cursor: pointer;
+}
+
+svg {
+	font: 11px sans-serif;
+}
+
+.axis line,
+.axis path {
+	fill: none;
+	stroke: none;
+	shape-rendering: crispEdges;
+}
+
+.active .label:not(.inactive) {
+	font-weight: bold;
+}
+
+.label.inactive {
+	fill: #888;
+}
+
+path.foreground {
+	fill: none;
+	stroke: #333;
+	stroke-width: 1.5px;
+}
+
+path.graticule {
+	fill: none;
+	stroke: #aaa;
+	stroke-width: .5px;
+}
+
+.land {
+	fill: #d7c7ad;
+	stroke: #a5967e;
+}
+
+// .background path {
+// 	fill: none;
+// 	stroke: none;
+// 	stroke-width: 30px;
+// 	pointer-events: stroke;
+// }
+
+// .foreground path {
+// 	fill: none;
+// 	stroke: steelblue;
+// 	stroke-width: 2.5px;
+// }
+
+// .axis .title {
+// 	font-size: 11px;
+// 	font-weight: bold;
+// 	text-transform: uppercase;
+// }
+
+
+
+// .label {
+// 	-webkit-transition: fill 125ms linear;
+// }
+
+
+
+// .foreground path.inactive {
+// 	stroke: #888;
+// 	stroke-opacity: .3;
+// 	stroke-width: 1.5px;
+// }
+
+// .stroke {
+// 	fill: none;
+// 	stroke: #000;
+// 	stroke-width: 3px;
+// }
+
+// .fill {
+// 	fill: #a4bac7;
+// }
+
+// .line:nth-child(2n) {
+// 	stroke-dasharray: 2,2;
+// }

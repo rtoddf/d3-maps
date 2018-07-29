@@ -1,0 +1,75 @@
+.line {
+	fill: none;
+	stroke: #003264;
+	stroke-width: 2px;
+}
+
+.simple01 .bar {
+	fill: steelblue;
+	cursor: pointer;
+	transition: fill .4s;
+}
+
+.simple01 .bar:hover {
+	fill: #003264;
+}
+
+.simple01 .axis path {
+	fill: none;
+	stroke: black;
+}
+
+.simple01 .axis {
+	font-size: 10px;
+}
+
+.simple01 .x.axis path,
+.simple01 .y.axis path {
+	display: block;
+}
+
+.simple01 .tick {
+	fill: black;
+	// stroke: black;
+}
+
+.simple01 .bubble_text {
+	fill: #fff;
+	font-weight: bold;
+}
+
+.simple01 .axis--x path {
+	display: none;
+}
+
+/* maps */
+
+.states {
+	fill: #ccc;
+	stroke: #fff;
+}
+
+/*-----------------------------------------------------------------------------------*\
+    #Tooltip 
+\*-----------------------------------------------------------------------------------*/
+.tooltip,
+.over_tooltip {
+    position: absolute;
+    padding: 8px;
+    background: rgba(255, 2555, 255, 0.75);
+    color: #000;    
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+    font: 12px sans-serif;
+    line-height: auto;
+    pointer-events: none;
+}
+
+.tooltip p,
+.over_tooltip p {
+    margin-bottom: 3px;
+}
+
+.tooltip td,
+.over_tooltip td {
+    padding: 3px;
+}

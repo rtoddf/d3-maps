@@ -1,0 +1,30 @@
+.address,
+.cityState {
+	font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 36px;
+    letter-spacing: 2px;
+}
+
+.cityState {
+	margin-bottom: 15px;
+}
+
+.city {
+	stroke: #fff;
+	stroke-width: .5px;
+	fill: #00b3f0;
+}
+
+.marker {
+	stroke: #000;
+	stroke-width: 1px;
+	fill: #d2b48c;
+}
+
+.city-center {
+	stroke: #000;
+	stroke-width: 1px;
+	fill: #fff;
+}

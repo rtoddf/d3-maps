@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Interfaces - D3</title>
+        <link href="css/base.css" rel="stylesheet" />
+    </head>
+
+    <body>
+        <div class="flex-container">
+            <div class="flex-row">
+                <div class="flex-item">
+                    <h3>Projection - Spherical Mercator*</h3>
+                    <p>The spherical mercator projection is commonly used by tile mapping libraries (such as OpenLayers and Leaflet). It is conformal; however, it introduces severe distortion at world scale and this is not recommended for choropleths.</p>
+                    <div class="projection display">
+                        <div id="map"></div>
+                    </div>
+                </div>
+                <div class="flex-item"></div>
+            </div>
+        </div>
+
+        <script src="../scripts/lib/jquery/jquery.min.js"></script>
+        <script src="../scripts/lib/d3.v4.min.js"></script>
+        <script src="https://d3js.org/d3-selection-multi.v1.min.js"></script>
+        <script src="http://d3js.org/topojson.v1.min.js"></script>
+        <script src="scripts/projections-spherical-mercator.js"></script>
+    </body>
+</html>

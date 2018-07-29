@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Interfaces - D3</title>
+		<link href="css/base.css" rel="stylesheet" />
+		<link href="css/maps.css" rel="stylesheet" />
+		<link href="css/cmg/cmg.css" rel="stylesheet">
+        <link href="css/poc-drawing-locations.css" rel="stylesheet">
+	</head>
+
+	<body>
+		<div class="flex-container">
+            <div class="flex-row">
+                <div class="flex-item">
+					<div class="media-type-select">
+                        <div class="col-md-3 col-md-offset-9">
+                            <button rel="program-share-modal" data-type="television" class="btn btn-media-type">
+                                <i class="icon-television"></i>
+                            </button>
+                            <button rel="program-share-modal" data-type="radio" class="btn btn-media-type">
+                                <i class="icon-radio"></i>
+                            </button>
+                            <button rel="program-share-modal" data-type="digital" class="btn btn-media-type">
+                                <i class="icon-digital"></i>
+                            </button>
+                            <button rel="program-share-modal" data-type="newspaper" class="btn btn-media-type">
+                                <i class="icon-newspaper"></i>
+                            </button>
+                            <button rel="program-share-modal" data-type="directmail" class="btn btn-media-type">
+                                <i class="icon-directmail"></i>
+                            </button>
+                        </div>
+                    </div>
+				</div>
+				<div class="flex-item">
+					<div class="media-type-select">
+                        <h5 class="text-center active-media-types">
+		                    <span rel="media-label-television">Television, </span>
+		                    <span rel="media-label-radio">Radio, </span>
+		                    <span rel="media-label-digital">Digital, </span>
+		                    <span rel="media-label-newspaper">Newspaper, </span>
+		                    <span rel="media-label-directmail">Direct Mail</span>
+		                </h5>
+                    </div>
+				</div>
+			</div>
+
+			<div class="flex-row">
+                <div class="flex-item">
+                	<div class="us_map us_zoom display">
+                        <div id="map"></div>
+                    </div>
+                </div>
+            </div>
+		</div>
+
+		<script src="../scripts/lib/jquery/jquery.min.js"></script>
+		<script src="../scripts/lib/d3.min.js"></script>
+		<script src="../scripts/lib/topojson.js"></script>
+		<script src="scripts/poc-drawing-locations.js"></script>
+	</body>
+</html>

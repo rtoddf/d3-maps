@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Interfaces - D3</title>
+        <link href="css/base.css" rel="stylesheet" />
+        <link href="css/examples.css" rel="stylesheet" />
+    </head>
+
+    <body>
+        <div class="flex-container">
+            <div class="flex-row">
+                <div class="flex-item">
+                    <h3>US Districts*</h3>
+                    <p>A standard map of the United States using the Albers USA projection. Map data is combined with the 114th congress data to present each states congrssional districts. I will be combining this map with congressional representative data to make the map more interactive.</p>
+                    <div class="us_map district_view display">
+                        <div id="map"></div>
+                    </div>
+                </div>
+                <div class="flex-item"></div>
+            </div>
+        </div>
+
+        <script src="../scripts/lib/jquery/jquery.min.js"></script>
+        <script src="../scripts/lib/d3.v4.min.js"></script>
+        <script src="https://d3js.org/d3-selection-multi.v1.min.js"></script>
+        <script src="http://d3js.org/topojson.v1.min.js"></script>
+        <script src="scripts/simple-us-districts.js"></script>
+    </body>
+</html>
