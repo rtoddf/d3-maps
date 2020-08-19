@@ -1,0 +1,61 @@
+id	code	name	party	same_sex_marriage	age_of_consent
+1	AL	Alabama	Republican	Legal	16
+2	AK	Alaska	Republican	Legal	16
+4	AZ	Arizona	Republican	Legal	18
+5	AR	Arkansas	Republican	Illegal	16
+6	CA	California	Democrat	Legal	18
+8	CO	Colorado	Split	Legal	17
+9	CT	Connecticut	Democrat	Legal	16
+10	DE	Delaware	Democrat	Legal	18
+11	DC	District of Columbia	none	Legal	16
+12	FL	Florida	Split	Legal	18
+13	GA	Georgia	Republican	Illegal	16
+15	HI	Hawaii	Democrat	Legal	16
+16	ID	Idaho	Republican	Legal	18
+17	IL	Illinois	Split	Legal	17
+18	IN	Indiana	Split	Legal	16
+19	IA	Iowa	Republican	Legal	16
+20	KS	Kansas	Republican	Legal	16
+21	KY	Kentucky	Republican	Legal	16
+22	LA	Louisiana	Republican	Illegal	17
+23	ME	Maine	Split	Legal	16
+24	MD	Maryland	Democrat	Legal	16
+25	MA	Massachusetts	Democrat	Legal	16
+26	MI	Michigan	Democrat	Illegal	16
+27	MN	Minnesota	Democrat	Legal	16
+28	MS	Mississippi	Republican	Illegal	16
+29	MO	Missouri	Split	Illegal	17
+30	MT	Montana	Split	Legal	16
+31	NE	Nebraska	Republican	Illegal	16
+32	NV	Nevada	Split	Legal	16
+33	NH	New Hampshire	Split	Legal	16
+34	NJ	New Jersey	Democrat	Legal	16
+35	NM	New Mexico	Democrat	Legal	16
+36	NY	New York	Democrat	Legal	17
+37	NC	North Carolina	Republican	Illegal	16
+38	ND	North Dakota	Split	Legal	18
+39	OH	Ohio	Split	Illegal	16
+40	OK	Oklahoma	Republican	Legal	16
+41	OR	Oregon	Democrat	Legal	18
+42	PA	Pennsylvania	Split	Legal	16
+44	RI	Rhode Island	Democrat	Legal	16
+45	SC	South Carolina	Republican	Legal	16
+46	SD	South Dakota	Republican	Legal	16
+47	TN	Tennessee	Republican	Illegal	18
+48	TX	Texas	Republican	Illegal	17
+49	UT	Utah	Split	Legal	18
+50	VT	Vermont	Democrat	Legal	16
+51	VA	Virginia	Democrat	Legal	16
+53	WA	Washington	Democrat	Legal	16
+54	WV	West Virginia	Split	Legal	16
+55	WI	Wisconsin	Split	Legal	18
+56	WY	Wyoming	Republican	Legal	16
+60	AS	America Samoa	none	none	none
+64	FM	Federated States of Micronesia	none	none	none
+66	GU	Guam	none	none	none
+68	MH	Marshall Islands	none	none	none
+69	MP	Northern Mariana Islands	none	none	none
+70	PW	Palau	noen	none	none
+72	PR	Puerto Rico	none	none	none
+74	UM	U.S. Minor Outlying Islands	none	none	none
+78	VI	Virgin Islands of the United States	none	none	none

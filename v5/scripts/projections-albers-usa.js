@@ -37,7 +37,6 @@ aspect = chart_container.offsetWidth / chart_container.offsetHeight
 const url = "data/us.json";
 
 Promise.all([d3.json(url)]).then(function(data) {
-    console.log("data:", data)
     var topology = data[0]
 
     vis_group.append('path')

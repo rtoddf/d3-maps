@@ -1,0 +1,443 @@
+table {
+	width: 100%;
+}
+
+select {
+	margin-bottom: 10px;
+}
+
+/* map canvas */
+#map_canvas,  #pano {
+	width: 100%;
+	height: 400px;
+	margin-bottom: 20px;
+	padding: 0;
+	border: 1px solid rgba(0,0,0,.2);
+}
+
+#map_canvas.directions {
+	width: 350px;
+	height: 350px;
+	margin-right: 10px;
+	float: left
+}
+
+#map_canvas img {
+	border: none;
+	box-shadow: none;
+	none-moz-box-shadow: none;
+	none-webkit-box-shadow: none
+}
+
+.infowindow h2 {
+	padding-top: 0;
+	color: #444
+}
+
+.infowindow img {
+	float: right;
+	width: 100px;
+	height: 100px;
+	margin: 0 10px 10px 10px;
+	border: 1px solid #999;
+	box-shadow: 2px 2px 2px #999;
+}
+
+.property {
+	color: #ae0000;
+	font-weight: bold
+}
+
+#directions_display {
+	width: 300px;
+	margin-right: 10px;
+	float: left
+}
+
+#directions_display img {
+	border: none;
+	box-shadow: none;
+	none-moz-box-shadow: none;
+	none-webkit-box-shadow: none
+}
+
+#directions_summary {
+	display: none
+}
+
+#directions_summaries .leg {
+	margin-bottom: 10px
+}
+
+#map_options {
+	margin-top: 10px
+}
+
+#distance_output {
+	margin-top: 20px
+}
+
+/* viz styles */
+.axis text {
+	fill: #999;
+	font: 10px sans-serif;
+}
+
+.axis path, .axis line {
+	fill: none;
+	stroke: #999;
+	shape-rendering: crispEdges;
+}
+
+// .tooltip {
+// 	position: absolute;
+// 	padding: 8px;
+// 	font: 10px sans-serif;
+// 	background: rgba(0, 0, 0, 0.75);
+// 	color: white;
+// 	text-shadow: 0 -1px 0px black;
+// 	padding: 8px 10px;
+// 	font-size: 10px;
+// 	line-height: 12px;
+// 	white-space: nowrap;
+// 	box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+// 	border-radius: 4px;
+// 	pointer-events: none;
+// }
+
+// .tooltip span {
+// 	display: block;
+// 	text-align: center;
+// }
+
+select {
+	margin: 20px 0;
+}
+
+.site {
+	margin: 20px 0;
+	text-align: center;
+}
+
+.display svg {
+	background-color: white;
+}
+
+/* drawing cities */
+.address,
+.cityState {
+	font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 36px;
+    letter-spacing: 2px;
+}
+
+.cityState {
+	margin-bottom: 15px;
+}
+
+.city {
+	stroke: #fff;
+	stroke-width: .5px;
+	fill: #00b3f0;
+}
+
+.marker {
+	stroke: #000;
+	stroke-width: 1px;
+	fill: #d2b48c;
+}
+
+.city-center {
+	stroke: #000;
+	stroke-width: 1px;
+	fill: #fff;
+}
+
+/*-----------------------------------------------------------------------------------*\
+    #Tooltip 
+\*-----------------------------------------------------------------------------------*/
+.tooltip,
+.over_tooltip {
+    position: absolute;
+    padding: 8px;
+    background: rgba(255, 2555, 255, 0.75);
+    color: #000;    
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+    font: 12px sans-serif;
+    line-height: auto;
+    pointer-events: none;
+}
+
+.tooltip p,
+.over_tooltip p {
+    margin-bottom: 3px;
+}
+
+.tooltip td,
+.over_tooltip td {
+    padding: 3px;
+}
+
+/*-----------------------------------------------------------------------------------*\
+    #Maps - Lambert
+\*-----------------------------------------------------------------------------------*/
+.lambert .graticule {
+	fill: none;
+	stroke: #999;
+	stroke-width: .5px;
+	stroke-opacity: .5;
+}
+
+.lambert .land {
+	fill: #baba71;
+	stroke: #999;
+	stroke-width: .5px;
+}
+
+.lambert .boundary {
+	fill: none;
+	stroke: #999;
+	stroke-width: .5px;
+}
+
+.lambert .water {
+	fill:#a8e1f8;
+}
+
+.lambert .stroke {
+	fill: none;
+	stroke: #000;
+	stroke-width: 1px;
+}
+
+/*-----------------------------------------------------------------------------------*\
+    #Maps - Stereographic
+\*-----------------------------------------------------------------------------------*/
+.stereographic .graticule {
+	fill: none;
+	stroke: #999;
+	stroke-width: .5px;
+	stroke-opacity: .5;
+}
+
+.stereographic .land {
+	fill: #baba71;
+	stroke: #464646;
+	stroke-width: .5px;
+}
+
+.stereographic .boundary {
+	fill: none;
+	stroke: #464646;
+	stroke-width: .5px;
+}
+
+.stereographic .water {
+	fill: #a8e1f8;
+}
+
+/*-----------------------------------------------------------------------------------*\
+    #Maps - Eckert
+\*-----------------------------------------------------------------------------------*/
+.eckert .graticule {
+	fill: none;
+	stroke: #999;
+	stroke-width: .5px;
+	stroke-opacity: .5;
+}
+
+.eckert .land {
+	fill: #6e8953;
+	stroke: #000;
+	stroke-width: .25px;
+	stroke-opacity: .5;
+}
+
+.eckert .water {
+	fill: #a8e1f8;
+}
+
+.eckert .boundary {
+	fill: none;
+	stroke: #fff;
+	stroke-width: .25px;
+	stroke-opacity: .5;
+}
+
+.eckert .stroke {
+	fill: none;
+	stroke: #000;
+	stroke-width: 1px;
+}
+
+
+.us_map path {
+    stroke-linejoin: round;
+    stroke-linecap: round;
+}
+
+.us_map .states {
+    fill: none;
+}
+
+.us_map.choropleth .q0-9 { fill:rgb(247,251,255); }
+.us_map.choropleth .q1-9 { fill:rgb(222,235,247); }
+.us_map.choropleth .q2-9 { fill:rgb(198,219,239); }
+.us_map.choropleth .q3-9 { fill:rgb(158,202,225); }
+.us_map.choropleth .q4-9 { fill:rgb(107,174,214); }
+.us_map.choropleth .q5-9 { fill:rgb(66,146,198); }
+.us_map.choropleth .q6-9 { fill:rgb(33,113,181); }
+.us_map.choropleth .q7-9 { fill:rgb(8,81,156); }
+.us_map.choropleth .q8-9 { fill: rgb(8,48,107); }
+
+
+
+/*-----------------------------------------------------------------------------------*\
+    #Maps - uk
+\*-----------------------------------------------------------------------------------*/
+.uk .subunit.SCT {
+	fill: #ddc;
+}
+
+.uk .subunit.WLS {
+	fill: #cdd;
+}
+
+.uk .subunit.NIR {
+	fill: #cdc;
+}
+
+.uk .subunit.ENG {
+	fill: #dcd;
+}
+
+.uk .subunit.IRL,
+.uk .subunit-label.IRL {
+	display: none;
+}
+
+.uk .subunit-boundary {
+	fill: none;
+	stroke: #777;
+	stroke-dasharray: 2,2;
+	stroke-linejoin: round;
+}
+
+.uk .subunit-boundary.IRL {
+	stroke: #aaa;
+}
+
+.uk .subunit-label {
+	fill: #777;
+	fill-opacity: .5;
+	font-size: 20px;
+	font-weight: 300;
+	text-anchor: middle;
+}
+
+.uk .place,
+.uk .place-label {
+	fill: #444;
+}
+
+.uk text {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 10px;
+	pointer-events: none;
+}
+
+
+
+.interactive .land {
+	fill: #a98b6f;
+	stroke: #fff;
+	stroke-width: 0.7px;
+}
+
+.interactive .land:hover {
+	fill: rgba(255,255,255,.7);
+	stroke-width: 1px;
+}
+
+
+.interactive .focused {
+	fill: rgba(255,255,255,.7);
+}
+
+.interactive #countries {
+	text-align: center;
+}
+
+.interactive select {
+	border: solid #ccc 1px;
+	padding: 3px;
+	box-shadow: inset 1px 1px 2px #ddd;
+}
+
+.interactive .tooltip {
+	position: absolute;
+	display: none;
+	pointer-events: none;
+	background: rgba(0,0,0,.5);
+	padding: 5px;
+	text-align: left;
+	border: solid #ccc 1px;
+	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+	color: #fff;
+	font-size: 14px;
+	font-family: sans-serif;
+}
+
+
+
+.animation #map {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.animation #map h1 {
+  position: absolute;
+  width: 1000px;
+}
+
+.animation .foreground {
+  fill: none;
+  stroke: #000;
+  stroke-width: 1px;
+  pointer-events: all;
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+}
+
+.animation .foreground.zooming {
+  cursor: -webkit-grabbing;
+  cursor: -moz-grabbing;
+}
+
+.animation .graticule {
+  fill: none;
+  stroke: #636B62;
+  stroke-width: .5px;
+  stroke-dasharray: 2,2;
+}
+
+.animation .land {
+  fill: #69D2E7;
+  stroke: none;
+}
+
+.animation .mesh {
+  stroke: #50576A;
+  stroke-width: .5px;
+  fill: none;
+}
+
+.point {
+  fill: #f00;
+}
+
+
+
+
