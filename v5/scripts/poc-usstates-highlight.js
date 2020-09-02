@@ -100,6 +100,8 @@ Promise.all([d3.json(us), d3.tsv(states)]).then(function(data) {
         }
     })
 
+    console.log('tsv: ', tsv)
+
     vis_group.selectAll('path')
             .data(topojson.feature(topology, topology.objects.states).features)
         .enter().append('path')

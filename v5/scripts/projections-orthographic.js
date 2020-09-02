@@ -96,10 +96,11 @@ Promise.all([d3.json(url)]).then(function(data) {
         })
 })
 
-// $(window).on('resize', function() {
-//     var targetWidth = container_parent.offsetWidth
-//     vis.attrs({
-//         'width': targetWidth,
-//         'height': Math.round(targetWidth / aspect)
-//     })
-// })
+window.addEventListener('resize', function (event) {
+    console.log("reqsize")
+    var targetWidth = container_parent.offsetWidth
+    vis.attrs({
+        'width': targetWidth,
+        'height': Math.round(targetWidth / aspect)
+    })
+})

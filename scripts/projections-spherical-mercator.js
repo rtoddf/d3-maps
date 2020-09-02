@@ -1,7 +1,7 @@
-var container_parent = $('.display') ,
-	chart_container = $('#map'),
+var container_parent = document.querySelector('.display'),
+	chart_container = document.querySelector('#map'),
 	margins = {top: 0, right: 0, bottom: 0, left: 0},
-	width = container_parent.width() - margins.left - margins.right,
+	width = container_parent.offsetWidth - margins.left - margins.right,
 	height = (width * .8) - margins.top - margins.bottom,
 	vis, vis_group, aspect
 
@@ -39,7 +39,7 @@ vis_group = vis.append('g')
 		'transform': 'translate(' + margins.left + ', ' + margins.top + ')'
 	})
 
-aspect = chart_container.width() / chart_container.height()
+aspect = chart_container.offsetWidth / chart_container.offsetHeight
 
 vis_group.append('rect')
 	.attrs({
@@ -56,9 +56,13 @@ vis_group.append('path')
         'stroke': defaults.colors.stroke,
         'stroke-width': defaults.colors.strokeWidth,
         'stroke-opacity': defaults.colors.strokeOpacity
-    })
+	})
+	
+const url = "data/world-50m.json";
 
-d3.json('data/world-50m.json', function(error, topology){
+Promise.all([d3.json(url)]).then(function(data) {
+	var topology = data[0]
+
 	vis_group.append('path')
 		.datum(topojson.feature(topology, topology.objects.land))
 		.attrs({
@@ -80,10 +84,10 @@ d3.json('data/world-50m.json', function(error, topology){
 		})
 })
 
-$(window).on('resize', function() {
-	var targetWidth = container_parent.width()
-	vis.attrs({
-		'width': targetWidth,
-		'height': Math.round(targetWidth / aspect)
-	})
-})
+// $(window).on('resize', function() {
+// 	var targetWidth = container_parent.offsetWidth
+// 	vis.attrs({
+// 		'width': targetWidth,
+// 		'height': Math.round(targetWidth / aspect)
+// 	})
+// })
