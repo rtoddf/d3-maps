@@ -1,47 +1,57 @@
-var container_parent = $('.display') ,
-    chart_container = $('#map'),
+var container_parent = document.querySelector('.display'),
+    chart_container = document.querySelector('#map'),
     margins = {top: 0, right: 20, bottom: 20, left: 20},
-    width = container_parent.width(),
+    width = container_parent.offsetWidth,
     height = (width * .5),
     vis, vis_group, aspect, timeout,
     data_set,
     markets = {}
 
-var tooltip = d3.select('.us_map').append('div')
-    .attr({
-        'class': 'tooltip'
-    })
-    .style({
-        'opacity': 1e-6
-    })
+// var tooltip = d3.select('.us_map').append('div')
+//     .attr({
+//         'class': 'tooltip'
+//     })
+//     .style({
+//         'opacity': 1e-6
+//     })
 
-var over_tooltip = d3.select('body').append('div')
-    .attr({
-        'class': 'over_tooltip'
-    })
-    .style({
-        'opacity': 1e-6
-    })
+// var over_tooltip = d3.select('body').append('div')
+//     .attr({
+//         'class': 'over_tooltip'
+//     })
+//     .style({
+//         'opacity': 1e-6
+//     })
 
-var defaults = {
-    state_fill: '#999999',
-    state_hover_fill: '#666',
-    state_stroke: 2,
-    state_stroke_color: '#fff',
-    media_type_color: '#00a9e1',
-    pulse_color01: '#ffffff',
-    pulse_color02: '#595959'
+// var defaults = {
+//     state_fill: '#999999',
+//     state_hover_fill: '#666',
+//     state_stroke: 2,
+//     state_stroke_color: '#fff',
+//     media_type_color: '#00a9e1',
+//     pulse_color01: '#ffffff',
+//     pulse_color02: '#595959'
+// }
+
+const defaults = {
+    colors: {
+        land: '#ababab',
+        location: '#00b3f0',
+        strokeColor: '#fff',
+        strokeWidth: 2,
+    }
 }
 
-var projection = d3.geo.albersUsa()
+let stateData = {}
+
+var projection = d3.geoAlbersUsa()
     .scale(width)
     .translate([ width/2, height/2 ]);
 
-var path = d3.geo.path()
-    .projection(projection);
+var path = d3.geoPath().projection(projection)
 
 vis = d3.select('#map').append('svg')
-    .attr({
+    .attrs({
         'width': width + margins.left + margins.right,
         'height': height + margins.top + margins.bottom,
         'preserveAspectRatio': 'xMinYMid',
@@ -49,168 +59,202 @@ vis = d3.select('#map').append('svg')
     })
 
 
-aspect = chart_container.width() / chart_container.height()
+// aspect = chart_container.offsetWidth / chart_container.offsetHeight
 vis_group = vis.append('g')
 
-d3.json('data/drawing-locations.json', function(states){
-    states.forEach(function(state){
-        var properties = {}
+const us = "data/us.json";
+const states = "data/drawing-locations.json"
+const info = "data/us-states-locations.tsv"
 
-        state.properties.forEach(function(city){
-            properties[city.id] = {
-                'name': city.name,
-                'tooltip': city.tooltip,
-                'latlon': city.latlon,
-                'television': city.television,
-                'radio': city.radio,
-                'digital': city.digital,
-                'newspaper': city.newspaper,
-                'directmail': city.directmail,
-            }
-        })
+Promise.all([d3.json(us), d3.tsv(info)]).then(function(data) {
+    const topology = data[0]
 
-        markets[state.id] = {
-            'id': state.id,
-            'name': state.name,
-            'mediatypes': getMedia(properties),
-            'properties': properties
-        }
-    })
-})
-
-function getMedia(properties){
-    var mediaTypes = []
-
-    $.each(properties, function(i, prop){
-        if(prop['television'].length !== 0){
-            mediaTypes.push('television') 
-        }
-
-        if(prop['radio'].length !== 0){
-            mediaTypes.push('radio') 
-        }
-
-        if(prop['digital'].length !== 0){
-            mediaTypes.push('digital') 
-        }
-
-        if(prop['newspaper'].length !== 0){
-            mediaTypes.push('newspaper') 
-        }
-
-        if(prop['directmail'].length !== 0){
-            mediaTypes.push('directmail') 
+    data[1].forEach(function(d, i){
+        stateData[d.id] = {
+            'name': d.name,
+            'code': d.code,
+            'location': d.location
         }
     })
 
-    return mediaTypes
-}
+    const info = data[1]
 
-d3.json('data/us.json', function(error, topology){
+    console.log('topology: ', topology)
+    console.log('info: ', info)
+
+    function state_location_fill(d){
+        if(stateData[d.id]){
+            return stateData[d.id].location == 'true' ? defaults.colors.location : defaults.colors.land
+        }
+    }
+
     // draws the state shapes
     vis_group.selectAll('path')
-            .data(topojson.feature(topology, topology.objects.states).features)
-        .enter().append('path')
-        .attr({
-            'd': path,
-            'class': 'stats',
-            'fill': defaults.state_fill,
-            'stroke': defaults.state_stroke_color,
-            'strokeWidth': defaults.state_stroke,
-        })
+        .data(topojson.feature(topology, topology.objects.states).features)
+            .enter().append('path')
+            .attrs({
+                'd': path,
+                'class': 'stats',
+                'fill': function(d){
+                    return state_location_fill(d)
+                },
+                'stroke': defaults.colors.strokeColor,
+                'strokeWidth': defaults.colors.strokeWidth
+            })
 
     markerGroup = vis_group.append('g')
 
-    function highlightLocations(states){
-        d3.selectAll('.stats')
-            .transition()
-                .duration(400)
-                .ease('cubic')
-                .attr({
-                    'fill': function(d){                       
-                        if(markets[d.id] && $.inArray(d.id, states) !== -1){
-                            return defaults.media_type_color
-                        } else {
-                            return defaults.state_fill
-                        }
-                    }
-                })
-    }
+    // states.forEach(function(state){
+    //     var properties = {}
 
-    function addMarketsToDropdown(ms, selectInstructions){       
-        $('#media-select').html('')
-        var selectOption = '<option class="instructions" rel="market-share-modal" data-type="select"><span>' + selectInstructions + '</span></option>'
-        $('#media-select').append(selectOption)
+    //     state.properties.forEach(function(city){
+    //         properties[city.id] = {
+    //             'name': city.name,
+    //             'tooltip': city.tooltip,
+    //             'latlon': city.latlon,
+    //             'television': city.television,
+    //             'radio': city.radio,
+    //             'digital': city.digital,
+    //             'newspaper': city.newspaper,
+    //             'directmail': city.directmail,
+    //         }
+    //     })
 
-        $.each(ms, function(j, market){
-            var option = '<option rel="market-share-modal" data-type="' + market.name +'"><span>' + market.tooltip + '</span></option>'
-            $('#media-select').append(option)
-        })
-    }
+    //     markets[state.id] = {
+    //         'id': state.id,
+    //         'name': state.name,
+    //         'mediatypes': getMedia(properties),
+    //         'properties': properties
+    //     }
+    // })
 
-    function marketsSelected(){
-        var ms = []
-        var states = []
-        var html = ''
+    // console.log('states: ', states)
 
-        $.each(allMediaTypes, function(l, mt){
-            if($.inArray(mt, activeMediaTypes) !== -1){
-                $('[rel="media-label-' + mt + '"]').fadeIn(300)
-            } else {
-                $('[rel="media-label-' + mt + '"]').fadeOut(200)
-            }
-        })
+    // function getMedia(properties){
+    //     var mediaTypes = []
+    
+    //     $.each(properties, function(i, prop){
+    //         if(prop['television'].length !== 0){
+    //             mediaTypes.push('television') 
+    //         }
+    
+    //         if(prop['radio'].length !== 0){
+    //             mediaTypes.push('radio') 
+    //         }
+    
+    //         if(prop['digital'].length !== 0){
+    //             mediaTypes.push('digital') 
+    //         }
+    
+    //         if(prop['newspaper'].length !== 0){
+    //             mediaTypes.push('newspaper') 
+    //         }
+    
+    //         if(prop['directmail'].length !== 0){
+    //             mediaTypes.push('directmail') 
+    //         }
+    //     })
+    
+    //     return mediaTypes
+    // }
 
-        $.each(markets, function(j, market){
-            $.each(market.mediatypes, function(k, media){
-                if($.inArray(media, activeMediaTypes) !== -1){
-                    $.each(market.properties, function(m, property){
-                        $.each(activeMediaTypes, function(l, amt){
-                            if (property[amt].length !== 0) {
-                                ms.push(property)
-                            }
-                        })
-                    })
-                    states.push(market.id)
-                }
-            })
-        })
+    // function highlightLocations(states){
+    //     d3.selectAll('.stats')
+    //         .transition()
+    //             .duration(400)
+    //             // .ease('cubic')
+    //             .attrs({
+    //                 'fill': function(d){                       
+    //                     if(markets[d.id] && $.inArray(d.id, states) !== -1){
+    //                         return defaults.media_type_color
+    //                     } else {
+    //                         return defaults.state_fill
+    //                     }
+    //                 }
+    //             })
+    // }
 
-        var selectInstructions = activeMediaTypes.length !== 0 ? 'Select a Market' : 'Please Select a Media Type Above'
+    // function addMarketsToDropdown(ms, selectInstructions){       
+    //     $('#media-select').html('')
+    //     var selectOption = '<option class="instructions" rel="market-share-modal" data-type="select"><span>' + selectInstructions + '</span></option>'
+    //     $('#media-select').append(selectOption)
 
-        ms = $.unique($.unique(ms))
-        addMarketsToDropdown($.unique(ms).sort(SortByName), selectInstructions)
-        pulseMarker($.unique(ms))
+    //     $.each(ms, function(j, market){
+    //         var option = '<option rel="market-share-modal" data-type="' + market.name +'"><span>' + market.tooltip + '</span></option>'
+    //         $('#media-select').append(option)
+    //     })
+    // }
 
-        states = $.unique(states)
-        highlightLocations(states)
-    }
+    // function marketsSelected(){
+    //     var ms = []
+    //     var states = []
+    //     var html = ''
 
-    $(document).ready(function(){
-        $('[rel="program-share-modal"]').addClass('active')
+    //     console.log("allMediaTypes: ", allMediaTypes)
 
-        marketsSelected()
-    })
+        // $.each(allMediaTypes, function(l, mt){
+        //     if($.inArray(mt, activeMediaTypes) !== -1){
+        //         $('[rel="media-label-' + mt + '"]').fadeIn(300)
+        //     } else {
+        //         $('[rel="media-label-' + mt + '"]').fadeOut(200)
+        //     }
+        // })
 
-    $('body').on('click', '[rel="program-share-modal"]', function(e){
-        e.preventDefault()
+        // $.each(markets, function(j, market){
+        //     $.each(market.mediatypes, function(k, media){
+        //         if($.inArray(media, activeMediaTypes) !== -1){
+        //             $.each(market.properties, function(m, property){
+        //                 $.each(activeMediaTypes, function(l, amt){
+        //                     if (property[amt].length !== 0) {
+        //                         ms.push(property)
+        //                     }
+        //                 })
+        //             })
+        //             states.push(market.id)
+        //         }
+        //     })
+        // })
 
-        if($(this).hasClass('active')){
-            $(this).removeClass('active')
-        } else {
-            $(this).addClass('active')
-        }
+        // var selectInstructions = activeMediaTypes.length !== 0 ? 'Select a Market' : 'Please Select a Media Type Above'
 
-        if($.inArray($(this).data('type'), activeMediaTypes) !== -1){
-            activeMediaTypes.splice($.inArray($(this).data('type'), activeMediaTypes), 1);
-        } else {
-            activeMediaTypes.push($(this).data('type'))
-        }
+        // ms = $.unique($.unique(ms))
+        // addMarketsToDropdown($.unique(ms).sort(SortByName), selectInstructions)
+        // pulseMarker($.unique(ms))
 
-        clearTimeout(timeout)
-        marketsSelected()
-    })
+        // states = $.unique(states)
+        // highlightLocations(states)
+    // }
+
+    // $(document).ready(function(){
+    //     $('[rel="program-share-modal"]').addClass('active')
+
+    //     marketsSelected()
+    // })
 })
+
+
+
+// d3.json('data/us.json', function(error, topology){
+
+//     $('body').on('click', '[rel="program-share-modal"]', function(e){
+//         e.preventDefault()
+
+//         if($(this).hasClass('active')){
+//             $(this).removeClass('active')
+//         } else {
+//             $(this).addClass('active')
+//         }
+
+//         if($.inArray($(this).data('type'), activeMediaTypes) !== -1){
+//             activeMediaTypes.splice($.inArray($(this).data('type'), activeMediaTypes), 1);
+//         } else {
+//             activeMediaTypes.push($(this).data('type'))
+//         }
+
+//         clearTimeout(timeout)
+//         marketsSelected()
+//     })
+// })
 
 var allMediaTypes = ['television', 'radio', 'digital', 'newspaper', 'directmail']
 var activeMediaTypes = ['television', 'radio', 'digital', 'newspaper', 'directmail']
@@ -244,7 +288,7 @@ function pulseMarker(properties) {
         var lng = city.latlon[1]
 
         var marker = markerGroup.append('circle')
-            .attr({
+            .attrs({
                 'class': 'marker',
                 'data-type': function(d){
                     return city.name
@@ -276,14 +320,14 @@ function pulseMarker(properties) {
                 })
             .transition()
                 .duration(700)
-                .ease(Math.sqrt)
+                // .ease(Math.sqrt)
                 .attr('r', 10)
                 .style('fill-opacity', 1e-6)
             .each('end', function(){
                 d3.select(this)
                     .transition()
                         .duration(400)
-                        .ease(Math.sqrt)
+                        // .ease(Math.sqrt)
                         .attr('r', 20)
                         .style('stroke-opacity', 1e-6)
                     .remove()
@@ -317,11 +361,3 @@ $('#media-select').change(function() {
         }
     });
 });
-
-$(window).on('resize', function() {
-    var targetWidth = container_parent.width()
-    vis.attr({
-        'width': targetWidth,
-        'height': Math.round(targetWidth / aspect)
-    })
-})
