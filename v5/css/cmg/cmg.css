@@ -1,0 +1,53 @@
+/*
+  Icon Font: cmg
+*/
+
+@font-face {
+  font-family: "cmg";
+  src: url("./cmg.eot");
+  src: url("./cmg.eot?#iefix") format("embedded-opentype"),
+       url("./cmg.woff") format("woff"),
+       url("./cmg.ttf") format("truetype"),
+       url("./cmg.svg#cmg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "cmg";
+    src: url("./cmg.svg#cmg") format("svg");
+  }
+}
+
+[data-icon]:before { content: attr(data-icon); }
+
+[data-icon]:before,
+.icon-digital:before,
+.icon-directmail:before,
+.icon-newspaper:before,
+.icon-question:before,
+.icon-radio:before,
+.icon-search:before,
+.icon-television:before {
+  display: inline-block;
+  font-family: "cmg";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+.icon-digital:before { content: "\f100"; }
+.icon-directmail:before { content: "\f101"; }
+.icon-newspaper:before { content: "\f102"; }
+.icon-question:before { content: "\f103"; }
+.icon-radio:before { content: "\f104"; }
+.icon-search:before { content: "\f105"; }
+.icon-television:before { content: "\f106"; }
