@@ -29,8 +29,8 @@ var container_parent = document.querySelector('.display'),
 //     state_stroke: 2,
 //     state_stroke_color: '#fff',
 //     media_type_color: '#00a9e1',
-//     pulse_color01: '#ffffff',
-//     pulse_color02: '#595959'
+    // pulse_color01: '#ffffff',
+    // pulse_color02: '#595959'
 // }
 
 const defaults = {
@@ -39,6 +39,8 @@ const defaults = {
         location: '#00b3f0',
         strokeColor: '#fff',
         strokeWidth: 2,
+        pulse_color01: '#000',
+        pulse_color02: '#ffffff'
     }
 }
 
@@ -73,7 +75,9 @@ Promise.all([d3.json(us), d3.tsv(info)]).then(function(data) {
         stateData[d.id] = {
             'name': d.name,
             'code': d.code,
-            'location': d.location
+            'location': d.location,
+            'latitude': d.latitude,
+            'longitude': d.longitude
         }
     })
 
@@ -103,6 +107,32 @@ Promise.all([d3.json(us), d3.tsv(info)]).then(function(data) {
             })
 
     markerGroup = vis_group.append('g')
+
+    $.each(info, function(i, city){
+        
+
+        var lat = parseInt(city.latitude)
+        var lng = parseInt(city.longitude)
+
+        if(lat != 0 && lng != 0){
+            console.log('city: ', city)
+            console.log('lat: ', lat)
+            console.log('lng: ', lng)
+
+            var marker = markerGroup.append('circle')
+                .attrs({
+                    // 'class': 'marker',
+                    'cx': projection([ lng, lat ])[0],
+                    'cy': projection([ lng, lat ])[1],
+                    'r': 5,
+                    'fill': defaults.colors.pulse_color02,
+                    'stroke-width': 2,
+                    'stroke': defaults.colors.pulse_color01 
+                })
+        }
+
+        
+    })
 
     // states.forEach(function(state){
     //     var properties = {}
