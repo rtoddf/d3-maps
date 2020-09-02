@@ -7,31 +7,21 @@ var container_parent = document.querySelector('.display'),
     data_set,
     markets = {}
 
-// var tooltip = d3.select('.us_map').append('div')
-//     .attr({
-//         'class': 'tooltip'
-//     })
-//     .style({
-//         'opacity': 1e-6
-//     })
+var tooltip = d3.select('.us_map').append('div')
+    .attrs({
+        'class': 'tooltip'
+    })
+    .style({
+        'opacity': 1e-6
+    })
 
-// var over_tooltip = d3.select('body').append('div')
-//     .attr({
-//         'class': 'over_tooltip'
-//     })
-//     .style({
-//         'opacity': 1e-6
-//     })
-
-// var defaults = {
-//     state_fill: '#999999',
-//     state_hover_fill: '#666',
-//     state_stroke: 2,
-//     state_stroke_color: '#fff',
-//     media_type_color: '#00a9e1',
-    // pulse_color01: '#ffffff',
-    // pulse_color02: '#595959'
-// }
+var over_tooltip = d3.select('body').append('div')
+    .attrs({
+        'class': 'over_tooltip'
+    })
+    .style({
+        'opacity': 1e-6
+    })
 
 const defaults = {
     colors: {
@@ -77,7 +67,8 @@ Promise.all([d3.json(us), d3.tsv(info)]).then(function(data) {
             'code': d.code,
             'location': d.location,
             'latitude': d.latitude,
-            'longitude': d.longitude
+            'longitude': d.longitude,
+            'city': d.city
         }
     })
 
@@ -108,14 +99,12 @@ Promise.all([d3.json(us), d3.tsv(info)]).then(function(data) {
 
     markerGroup = vis_group.append('g')
 
-    $.each(info, function(i, city){
-        
-
-        var lat = parseInt(city.latitude)
-        var lng = parseInt(city.longitude)
+    $.each(info, function(i, location){
+        var lat = parseInt(location.latitude)
+        var lng = parseInt(location.longitude)
 
         if(lat != 0 && lng != 0){
-            console.log('city: ', city)
+            console.log('city: ', location.city)
             console.log('lat: ', lat)
             console.log('lng: ', lng)
 
@@ -125,14 +114,30 @@ Promise.all([d3.json(us), d3.tsv(info)]).then(function(data) {
                     'cx': projection([ lng, lat ])[0],
                     'cy': projection([ lng, lat ])[1],
                     'r': 5,
-                    'fill': defaults.colors.pulse_color02,
-                    'stroke-width': 2,
-                    'stroke': defaults.colors.pulse_color01 
+                    // 'fill': defaults.colors.pulse_color02,
+                    // 'stroke-width': 2,
+                    // 'stroke': defaults.colors.pulse_color01 
+                })
+                .on('mouseover', (location, index) => {
+                    vis_group
+                        .selectAll('.tooltip')
+                        .data([location])
+                        .join('text')
+                        .attr('class', 'tooltip')
+                        .text(location.city)
                 })
         }
 
         
     })
+
+    markerGroup.selectAll('.marker')
+        // .each(function(d) {
+        //     console.log('d in for each: ', d)
+        //     d3.select(this).on('click', clicked)
+        //     d3.select(this).on('mouseover', user_interaction)
+        //     d3.select(this).on('mouseout', user_interaction)
+        // })
 
     // states.forEach(function(state){
     //     var properties = {}
@@ -296,19 +301,21 @@ function SortByName(a, b){
 }
 
 function user_interaction(d){
+    console.log('hover: ', d)
+
     var tooltip_opacity = d3.event.type == 'mouseover' ? 1 : 0
     
-    over_tooltip
-        .html($(this).data('tooltip'))
-        .style({
-            'left': (d3.event.pageX) + 'px',
-            'top': (d3.event.pageY - 28) + 'px'
-        })
-        .transition()
-            .duration(500)
-            .style({
-                'opacity': tooltip_opacity
-            }) 
+    // over_tooltip
+    //     .html($(this).data('tooltip'))
+    //     .style({
+    //         'left': (d3.event.pageX) + 'px',
+    //         'top': (d3.event.pageY - 28) + 'px'
+    //     })
+    //     .transition()
+    //         .duration(500)
+    //         .style({
+    //             'opacity': tooltip_opacity
+    //         }) 
 }
 
 
@@ -383,11 +390,3 @@ function goToUrl(property){
 function clicked(d){
     goToUrl(($(this).data('type')).replace(' ', ''))
 }
-
-$('#media-select').change(function() {
-    $('#media-select option:selected').each(function() {
-        if($(this).attr('data-type') !== 'select'){
-            goToUrl($(this).attr('data-type'))
-        }
-    });
-});

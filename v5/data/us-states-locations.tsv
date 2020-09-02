@@ -1,18 +1,18 @@
-id	code	name	location	latitude	longitude
+id	code	name	location	latitude	longitude	city
 1	AL	Alabama	false	0	0
 2	AK	Alaska	false	0	0
 4	AZ	Arizona	false	0	0
 5	AR	Arkansas	false	0	0
-6	CA	California	true	34.061410	-118.352410
+6	CA	California	true	34.061410	-118.352410	Atlanta
 8	CO	Colorado	false	0	0
 9	CT	Connecticut	false	0	0
 10	DE	Delaware	false	0	0
 11	DC	District of Columbia	false	0	0
 12	FL	Florida	false	0	0
-13	GA	Georgia	true	33.846710	-84.355820
+13	GA	Georgia	true	33.846710	-84.355820	Atlanta
 15	HI	Hawaii	false	0	0
 16	ID	Idaho	false	0	0
-17	IL	Illinois	true	0	0
+17	IL	Illinois	true	41.886013	-87.623552	Atlanta
 18	IN	Indiana	false	0	0
 19	IA	Iowa	false	0	0
 20	KS	Kansas	false	0	0
@@ -20,9 +20,9 @@ id	code	name	location	latitude	longitude
 22	LA	Louisiana	false	0	0
 23	ME	Maine	false	0	0
 24	MD	Maryland	false	0	0
-25	MA	Massachusetts	true	0	0
-26	MI	Michigan	true	0	0
-27	MN	Minnesota	true	0	0
+25	MA	Massachusetts	true	42.349870	-71.079230	Atlanta
+26	MI	Michigan	true	42.475270	-83.243460	Atlanta
+27	MN	Minnesota	true	44.974130	-93.266600	Atlanta
 28	MS	Mississippi	false	0	0
 29	MO	Missouri	false	0	0
 30	MT	Montana	false	0	0
@@ -31,22 +31,22 @@ id	code	name	location	latitude	longitude
 33	NH	New Hampshire	false	0	0
 34	NJ	New Jersey	false	0	0
 35	NM	New Mexico	false	0	0
-36	NY	New York	true	0	0
+36	NY	New York	true	40.753178	-73.970022	Atlanta
 37	NC	North Carolina	false	0	0
 38	ND	North Dakota	false	0	0
 39	OH	Ohio	false	0	0
 40	OK	Oklahoma	false	0	0
 41	OR	Oregon	false	0	0
-42	PA	Pennsylvania	true	0	0
+42	PA	Pennsylvania	true	40.083652	-75.411128	Atlanta
 44	RI	Rhode Island	false	0	0
 45	SC	South Carolina	false	0	0
 46	SD	South Dakota	false	0	0
 47	TN	Tennessee	false	0	0
-48	TX	Texas	true	0	0
+48	TX	Texas	true	32.924649	-96.816783	Atlanta
 49	UT	Utah	false	0	0
 50	VT	Vermont	false	0	0
-51	VA	Virginia	false	0	0
-53	WA	Washington	true	0	0
+51	VA	Virginia	true	38.897600	-77.071194	Arlington
+53	WA	Washington	true	47.617461	-122.350721	Atlanta
 54	WV	West Virginia	false	0	0
 55	WI	Wisconsin	false	0	0
 56	WY	Wyoming	false	0	0
