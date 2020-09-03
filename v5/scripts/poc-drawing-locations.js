@@ -94,12 +94,25 @@ Promise.all([d3.json(us), d3.tsv(info)]).then(function(data) {
                     .style('opacity', 1) 
         })
         .on('mouseout', function(d){
-            d3.select(this)
-                .transition()
-                .duration(200)
+            // d3.select(this)
+            //     .transition()
+            //     .duration(200)
             d3.select('.tooltip')
                 .transition()
                     .duration(200)
                     .style('opacity', 0) 
+        })
+        .on('click', function(d){
+            d3.select('.location')
+                .html(d.city)
+
+            d3.select('.address')
+                .html(d.address)
+
+            d3.select('.email')
+                .html(d.email)
+
+            d3.select('.phone')
+                .html(d.phone)
         })
 })

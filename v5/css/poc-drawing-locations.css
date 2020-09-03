@@ -95,50 +95,44 @@ div[data-layout="column"] {
     #Market / Properties
 \*-----------------------------------------------------------------------------------*/
 
-.market-card {
-    height: 430px;
-    margin-bottom: 40px;
-    border: 2px solid #000;
-    padding: 10px 10px 25px;
-    text-align: center;
+.location-info-box h2,
+.location-info-box h3,
+.location-info-box h6 {
+    margin: 0;
+    font-family: "Raleway", sans-serif;
+    font-style: normal;
+    letter-spacing: 2px;
 }
 
-@media (max-width: 480px) {
-    .market-card {
-        height: auto;
-    }
+.location-info-box h2 {
+    color: #00b3f0;
+    font-size: 22px;
+    font-weight: 900;
+    line-height: 32px;
+    text-transform: uppercase;
 }
 
-.market-card ul {
-    margin-top: 20px;
-}
-
-.market-card ul li {
-    margin-bottom: 5px;
-}
-    
-.market-card img {
-    width: auto;
-    max-height: 100px;
-}
-
-.market-card .market-card-title {
-    color: #003264;
+.location-info-box h3 {
     font-size: 18px;
-    font-weight: bold;
+    font-style: normal;
+    font-weight: 400;
     line-height: 24px;
 }
 
-.market-card .market-card-label {
-    margin-bottom: 0;
-    color: #003264;
-    font-weight: bold;
+.location-info-box a,
+.location-info-box a:hover,
+.location-info-box a:active,
+.location-info-box a:focus {
+    color: #292929;
+    color: #00b3f0;
+    text-decoration: none;
 }
 
-.market-card .market-card-type {
-    margin-bottom: 0;
+.location-info-box h6 {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
 }
-
 /*-----------------------------------------------------------------------------------*\
     #End Market / Properties
 \*-----------------------------------------------------------------------------------*/
