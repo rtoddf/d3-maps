@@ -19,9 +19,7 @@ const defaults = {
         land: '#ababab',
         location: '#00b3f0',
         strokeColor: '#fff',
-        strokeWidth: 2,
-        pulse_color01: '#000',
-        pulse_color02: '#ffffff'
+        strokeWidth: 2
     }
 }
 
@@ -43,23 +41,25 @@ vis = d3.select('#map').append('svg')
 vis_group = vis.append('g')
 
 const us = "data/us.json";
-const info = "data/us-states-locations.tsv"
+const info = "data/us-states-locations.json"
 
-Promise.all([d3.json(us), d3.tsv(info)]).then(function(data) {
+Promise.all([d3.json(us), d3.json(info)]).then(function(data) {
     const topology = data[0]
 
-    data[1].forEach(function(d, i){
+    // figure out how to take this out - it's not needed
+    data[1].forEach(function(d){
         stateData[d.id] = {
             'name': d.name,
             'code': d.code,
             'location': d.location,
             'latitude': d.latitude,
             'longitude': d.longitude,
-            'city': d.city
+            'city': d.displayname
         }
     })
 
     const info = data[1]
+    console.log('info: ', info)
 
     // draws the state shapes
     vis_group.selectAll('path')
@@ -67,7 +67,7 @@ Promise.all([d3.json(us), d3.tsv(info)]).then(function(data) {
             .enter().append('path')
             .attrs({
                 'd': path,
-                'fill': (d) => stateData[d.id] && stateData[d.id].location == 'true' ? defaults.colors.location : defaults.colors.land,
+                'fill': (d) => stateData[d.id] && stateData[d.id].location ? defaults.colors.location : defaults.colors.land,
                 'stroke': defaults.colors.strokeColor,
                 'strokeWidth': defaults.colors.strokeWidth
             })
@@ -79,12 +79,13 @@ Promise.all([d3.json(us), d3.tsv(info)]).then(function(data) {
             'class': 'marker',
             'cx': (d) => d.longitude != 0 && d.latitude != 0 ? projection([ parseFloat(d.longitude), parseFloat(d.latitude) ])[0]: '',
             'cy': (d) => d.longitude != 0 && d.latitude != 0 ? projection([ parseFloat(d.longitude), parseFloat(d.latitude) ])[1]: '',
-            'r': 5
+            'r': 5,
+            'stroke': 'white'
         })
         .style('cursor', 'pointer')
         .on('mouseover', function(d){
             d3.select('.tooltip')
-                .html('<span>' + d.city + '</span>')
+                .html('<span>' + d.displayname + '</span>')
                 .styles({
                     'left': (d3.event.pageX) + 'px',
                     'top': (d3.event.pageY - 35) + 'px'
@@ -94,17 +95,17 @@ Promise.all([d3.json(us), d3.tsv(info)]).then(function(data) {
                     .style('opacity', 1) 
         })
         .on('mouseout', function(d){
-            // d3.select(this)
-            //     .transition()
-            //     .duration(200)
             d3.select('.tooltip')
                 .transition()
                     .duration(200)
                     .style('opacity', 0) 
         })
         .on('click', function(d){
+            d3.select('.location-info-box')
+                .style('display', 'block')
+
             d3.select('.location')
-                .html(d.city)
+                .html(d.displayname)
 
             d3.select('.address')
                 .html(d.address)
