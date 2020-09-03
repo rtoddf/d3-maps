@@ -55,7 +55,6 @@ vis = d3.select('#map').append('svg')
 vis_group = vis.append('g')
 
 const us = "data/us.json";
-const states = "data/drawing-locations.json"
 const info = "data/us-states-locations.tsv"
 
 Promise.all([d3.json(us), d3.tsv(info)]).then(function(data) {
@@ -73,9 +72,6 @@ Promise.all([d3.json(us), d3.tsv(info)]).then(function(data) {
     })
 
     const info = data[1]
-
-    console.log('topology: ', topology)
-    console.log('info: ', info)
 
     function state_location_fill(d){
         if(stateData[d.id]){
@@ -96,226 +92,57 @@ Promise.all([d3.json(us), d3.tsv(info)]).then(function(data) {
                 'stroke': defaults.colors.strokeColor,
                 'strokeWidth': defaults.colors.strokeWidth
             })
+            // .each(function(d) {
+            //     d3.select(this).on('mouseover', user_interaction)
+            //     d3.select(this).on('mouseout', user_interaction)
+            // })
 
-    markerGroup = vis_group.append('g')
+    vis_group.selectAll('circle')
+        .data(info)
+            .enter().append('circle')
+        .attrs({
+            'class': 'marker',
+            'cx': function(d){
+                if(d.longitude != 0 && d.latitude != 0){
+                    var lat = parseFloat(d.latitude)
+                    var lon = parseFloat(d.longitude)
+                    return projection([ parseFloat(d.longitude), parseFloat(d.latitude) ])[0]
+                }
+            },
+            'cy': function(d){
+                if(d.longitude != 0 && d.latitude != 0){
+                    var lat = parseFloat(d.latitude)
+                    var lon = parseFloat(d.longitude)
+                    return projection([ parseFloat(d.longitude), parseFloat(d.latitude) ])[1]
+                }
+            },
+            'r': 5
+        })
 
-    $.each(info, function(i, location){
-        var lat = parseInt(location.latitude)
-        var lng = parseInt(location.longitude)
-
-        if(lat != 0 && lng != 0){
-            console.log('city: ', location.city)
-            console.log('lat: ', lat)
-            console.log('lng: ', lng)
-
-            var marker = markerGroup.append('circle')
-                .attrs({
-                    // 'class': 'marker',
-                    'cx': projection([ lng, lat ])[0],
-                    'cy': projection([ lng, lat ])[1],
-                    'r': 5,
-                    // 'fill': defaults.colors.pulse_color02,
-                    // 'stroke-width': 2,
-                    // 'stroke': defaults.colors.pulse_color01 
-                })
-                .on('mouseover', (location, index) => {
-                    vis_group
-                        .selectAll('.tooltip')
-                        .data([location])
-                        .join('text')
-                        .attr('class', 'tooltip')
-                        .text(location.city)
-                })
-        }
-
-        
-    })
-
-    markerGroup.selectAll('.marker')
-        // .each(function(d) {
-        //     console.log('d in for each: ', d)
-        //     d3.select(this).on('click', clicked)
-        //     d3.select(this).on('mouseover', user_interaction)
-        //     d3.select(this).on('mouseout', user_interaction)
-        // })
-
-    // states.forEach(function(state){
-    //     var properties = {}
-
-    //     state.properties.forEach(function(city){
-    //         properties[city.id] = {
-    //             'name': city.name,
-    //             'tooltip': city.tooltip,
-    //             'latlon': city.latlon,
-    //             'television': city.television,
-    //             'radio': city.radio,
-    //             'digital': city.digital,
-    //             'newspaper': city.newspaper,
-    //             'directmail': city.directmail,
-    //         }
-    //     })
-
-    //     markets[state.id] = {
-    //         'id': state.id,
-    //         'name': state.name,
-    //         'mediatypes': getMedia(properties),
-    //         'properties': properties
-    //     }
-    // })
-
-    // console.log('states: ', states)
-
-    // function getMedia(properties){
-    //     var mediaTypes = []
-    
-    //     $.each(properties, function(i, prop){
-    //         if(prop['television'].length !== 0){
-    //             mediaTypes.push('television') 
-    //         }
-    
-    //         if(prop['radio'].length !== 0){
-    //             mediaTypes.push('radio') 
-    //         }
-    
-    //         if(prop['digital'].length !== 0){
-    //             mediaTypes.push('digital') 
-    //         }
-    
-    //         if(prop['newspaper'].length !== 0){
-    //             mediaTypes.push('newspaper') 
-    //         }
-    
-    //         if(prop['directmail'].length !== 0){
-    //             mediaTypes.push('directmail') 
-    //         }
-    //     })
-    
-    //     return mediaTypes
-    // }
-
-    // function highlightLocations(states){
-    //     d3.selectAll('.stats')
-    //         .transition()
-    //             .duration(400)
-    //             // .ease('cubic')
-    //             .attrs({
-    //                 'fill': function(d){                       
-    //                     if(markets[d.id] && $.inArray(d.id, states) !== -1){
-    //                         return defaults.media_type_color
-    //                     } else {
-    //                         return defaults.state_fill
-    //                     }
-    //                 }
-    //             })
-    // }
-
-    // function addMarketsToDropdown(ms, selectInstructions){       
-    //     $('#media-select').html('')
-    //     var selectOption = '<option class="instructions" rel="market-share-modal" data-type="select"><span>' + selectInstructions + '</span></option>'
-    //     $('#media-select').append(selectOption)
-
-    //     $.each(ms, function(j, market){
-    //         var option = '<option rel="market-share-modal" data-type="' + market.name +'"><span>' + market.tooltip + '</span></option>'
-    //         $('#media-select').append(option)
-    //     })
-    // }
-
-    // function marketsSelected(){
-    //     var ms = []
-    //     var states = []
-    //     var html = ''
-
-    //     console.log("allMediaTypes: ", allMediaTypes)
-
-        // $.each(allMediaTypes, function(l, mt){
-        //     if($.inArray(mt, activeMediaTypes) !== -1){
-        //         $('[rel="media-label-' + mt + '"]').fadeIn(300)
-        //     } else {
-        //         $('[rel="media-label-' + mt + '"]').fadeOut(200)
-        //     }
-        // })
-
-        // $.each(markets, function(j, market){
-        //     $.each(market.mediatypes, function(k, media){
-        //         if($.inArray(media, activeMediaTypes) !== -1){
-        //             $.each(market.properties, function(m, property){
-        //                 $.each(activeMediaTypes, function(l, amt){
-        //                     if (property[amt].length !== 0) {
-        //                         ms.push(property)
-        //                     }
-        //                 })
-        //             })
-        //             states.push(market.id)
-        //         }
-        //     })
-        // })
-
-        // var selectInstructions = activeMediaTypes.length !== 0 ? 'Select a Market' : 'Please Select a Media Type Above'
-
-        // ms = $.unique($.unique(ms))
-        // addMarketsToDropdown($.unique(ms).sort(SortByName), selectInstructions)
-        // pulseMarker($.unique(ms))
-
-        // states = $.unique(states)
-        // highlightLocations(states)
-    // }
-
-    // $(document).ready(function(){
-    //     $('[rel="program-share-modal"]').addClass('active')
-
-    //     marketsSelected()
-    // })
+    vis_group.selectAll('.marker')
+        .each(function(d) {
+            // d3.select(this).on('click', clicked)
+            d3.select(this).on('mouseover', user_interaction)
+            d3.select(this).on('mouseout', user_interaction)
+        })
 })
-
-
-
-// d3.json('data/us.json', function(error, topology){
-
-//     $('body').on('click', '[rel="program-share-modal"]', function(e){
-//         e.preventDefault()
-
-//         if($(this).hasClass('active')){
-//             $(this).removeClass('active')
-//         } else {
-//             $(this).addClass('active')
-//         }
-
-//         if($.inArray($(this).data('type'), activeMediaTypes) !== -1){
-//             activeMediaTypes.splice($.inArray($(this).data('type'), activeMediaTypes), 1);
-//         } else {
-//             activeMediaTypes.push($(this).data('type'))
-//         }
-
-//         clearTimeout(timeout)
-//         marketsSelected()
-//     })
-// })
-
-var allMediaTypes = ['television', 'radio', 'digital', 'newspaper', 'directmail']
-var activeMediaTypes = ['television', 'radio', 'digital', 'newspaper', 'directmail']
-
-function SortByName(a, b){
-    var aName = a.name.toLowerCase();
-    var bName = b.name.toLowerCase(); 
-    return ((aName < bName) ? -1 : ((aName > bName) ? 1 : 0));
-}
 
 function user_interaction(d){
     console.log('hover: ', d)
 
     var tooltip_opacity = d3.event.type == 'mouseover' ? 1 : 0
     
-    // over_tooltip
-    //     .html($(this).data('tooltip'))
-    //     .style({
-    //         'left': (d3.event.pageX) + 'px',
-    //         'top': (d3.event.pageY - 28) + 'px'
-    //     })
-    //     .transition()
-    //         .duration(500)
-    //         .style({
-    //             'opacity': tooltip_opacity
-    //         }) 
+    over_tooltip
+        // .html($(this).data('tooltip'))
+        .style({
+            'left': (d3.event.pageX) + 'px',
+            'top': (d3.event.pageY - 28) + 'px'
+        })
+        .transition()
+            .duration(500)
+            .style({
+                'opacity': tooltip_opacity
+            }) 
 }
 
 
@@ -379,14 +206,4 @@ function pulseMarker(properties) {
             d3.select(this).on('mouseover', user_interaction)
             d3.select(this).on('mouseout', user_interaction)
         })
-}
-
-function goToUrl(property){
-    var url = 'location.html?' + property;
-    $(location).attr('href', url);
-    window.location = url;
-}
-
-function clicked(d){
-    goToUrl(($(this).data('type')).replace(' ', ''))
 }
