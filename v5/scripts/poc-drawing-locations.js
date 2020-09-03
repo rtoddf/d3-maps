@@ -15,14 +15,6 @@ var tooltip = d3.select('.us_map').append('div')
         'opacity': 1e-6
     })
 
-var over_tooltip = d3.select('body').append('div')
-    .attrs({
-        'class': 'over_tooltip'
-    })
-    .style({
-        'opacity': 1e-6
-    })
-
 const defaults = {
     colors: {
         land: '#ababab',
@@ -104,106 +96,38 @@ Promise.all([d3.json(us), d3.tsv(info)]).then(function(data) {
             'class': 'marker',
             'cx': function(d){
                 if(d.longitude != 0 && d.latitude != 0){
-                    var lat = parseFloat(d.latitude)
-                    var lon = parseFloat(d.longitude)
                     return projection([ parseFloat(d.longitude), parseFloat(d.latitude) ])[0]
                 }
             },
             'cy': function(d){
                 if(d.longitude != 0 && d.latitude != 0){
-                    var lat = parseFloat(d.latitude)
-                    var lon = parseFloat(d.longitude)
                     return projection([ parseFloat(d.longitude), parseFloat(d.latitude) ])[1]
                 }
             },
             'r': 5
         })
-
-    vis_group.selectAll('.marker')
-        .each(function(d) {
-            // d3.select(this).on('click', clicked)
-            d3.select(this).on('mouseover', user_interaction)
-            d3.select(this).on('mouseout', user_interaction)
+        .style('cursor', 'pointer')
+        .on('mouseover', function(d){
+            d3.select('.tooltip')
+                .html('<span>' + d.city + '</span>')
+                .styles({
+                    'left': (d3.event.pageX-160) + 'px',
+                    'top': (d3.event.pageY - 60) + 'px'
+                })
+                .transition()
+                    .duration(500)
+                    .style('opacity', 1) 
+        })
+        .on('mouseout', function(d){
+            d3.select(this)
+                .transition()
+                .duration(500)
+                    .attrs({
+                        'fill': 'red'
+                    })
+            d3.select('.tooltip')
+                .transition()
+                    .duration(200)
+                    .style('opacity', 0) 
         })
 })
-
-function user_interaction(d){
-    console.log('hover: ', d)
-
-    var tooltip_opacity = d3.event.type == 'mouseover' ? 1 : 0
-    
-    over_tooltip
-        // .html($(this).data('tooltip'))
-        .style({
-            'left': (d3.event.pageX) + 'px',
-            'top': (d3.event.pageY - 28) + 'px'
-        })
-        .transition()
-            .duration(500)
-            .style({
-                'opacity': tooltip_opacity
-            }) 
-}
-
-
-function pulseMarker(properties) {
-    $.each(properties, function(i, city){
-        var lat = city.latlon[0]
-        var lng = city.latlon[1]
-
-        var marker = markerGroup.append('circle')
-            .attrs({
-                'class': 'marker',
-                'data-type': function(d){
-                    return city.name
-                },
-                'data-tooltip': function(d){
-                    return city.tooltip
-                },
-                'cx': function(d){
-                    if(lng !== 0 && lat !== 0){
-                        return projection([ lng, lat ])[0]
-                    }
-                },
-                'cy': function(d){
-                    if(lng !== 0 && lat !== 0){
-                        return projection([ lng, lat ])[1]
-                    }
-                },
-                'r': 5,
-                'fill': function(d){
-                    return defaults.pulse_color02
-                },
-                'stroke-width': 1,
-                'stroke': function(d){
-                    return defaults.pulse_color01
-                }
-            })
-            .style({
-                    'cursor': 'pointer'
-                })
-            .transition()
-                .duration(700)
-                // .ease(Math.sqrt)
-                .attr('r', 10)
-                .style('fill-opacity', 1e-6)
-            .each('end', function(){
-                d3.select(this)
-                    .transition()
-                        .duration(400)
-                        // .ease(Math.sqrt)
-                        .attr('r', 20)
-                        .style('stroke-opacity', 1e-6)
-                    .remove()
-            })
-        })
-    
-    timeout = setTimeout(pulseMarker, 1500, properties)
-
-    markerGroup.selectAll('.marker')
-        .each(function(d) {
-            d3.select(this).on('click', clicked)
-            d3.select(this).on('mouseover', user_interaction)
-            d3.select(this).on('mouseout', user_interaction)
-        })
-}
