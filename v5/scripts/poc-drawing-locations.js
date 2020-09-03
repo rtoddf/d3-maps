@@ -4,10 +4,9 @@ var container_parent = document.querySelector('.display'),
     width = container_parent.offsetWidth,
     height = (width * .5),
     vis, vis_group, aspect, timeout,
-    data_set,
-    markets = {}
+    stateData = {}
 
-var tooltip = d3.select('.us_map').append('div')
+var tooltip = d3.select('body').append('div')
     .attrs({
         'class': 'tooltip'
     })
@@ -26,8 +25,6 @@ const defaults = {
     }
 }
 
-let stateData = {}
-
 var projection = d3.geoAlbersUsa()
     .scale(width)
     .translate([ width/2, height/2 ]);
@@ -41,7 +38,6 @@ vis = d3.select('#map').append('svg')
         'preserveAspectRatio': 'xMinYMid',
         'viewBox': '0 0 ' + (width + margins.left + margins.right) + ' ' + (height + margins.top + margins.bottom)
     })
-
 
 // aspect = chart_container.offsetWidth / chart_container.offsetHeight
 vis_group = vis.append('g')
@@ -65,45 +61,24 @@ Promise.all([d3.json(us), d3.tsv(info)]).then(function(data) {
 
     const info = data[1]
 
-    function state_location_fill(d){
-        if(stateData[d.id]){
-            return stateData[d.id].location == 'true' ? defaults.colors.location : defaults.colors.land
-        }
-    }
-
     // draws the state shapes
     vis_group.selectAll('path')
         .data(topojson.feature(topology, topology.objects.states).features)
             .enter().append('path')
             .attrs({
                 'd': path,
-                'class': 'stats',
-                'fill': function(d){
-                    return state_location_fill(d)
-                },
+                'fill': (d) => stateData[d.id] && stateData[d.id].location == 'true' ? defaults.colors.location : defaults.colors.land,
                 'stroke': defaults.colors.strokeColor,
                 'strokeWidth': defaults.colors.strokeWidth
             })
-            // .each(function(d) {
-            //     d3.select(this).on('mouseover', user_interaction)
-            //     d3.select(this).on('mouseout', user_interaction)
-            // })
 
     vis_group.selectAll('circle')
         .data(info)
             .enter().append('circle')
         .attrs({
             'class': 'marker',
-            'cx': function(d){
-                if(d.longitude != 0 && d.latitude != 0){
-                    return projection([ parseFloat(d.longitude), parseFloat(d.latitude) ])[0]
-                }
-            },
-            'cy': function(d){
-                if(d.longitude != 0 && d.latitude != 0){
-                    return projection([ parseFloat(d.longitude), parseFloat(d.latitude) ])[1]
-                }
-            },
+            'cx': (d) => d.longitude != 0 && d.latitude != 0 ? projection([ parseFloat(d.longitude), parseFloat(d.latitude) ])[0]: '',
+            'cy': (d) => d.longitude != 0 && d.latitude != 0 ? projection([ parseFloat(d.longitude), parseFloat(d.latitude) ])[1]: '',
             'r': 5
         })
         .style('cursor', 'pointer')
@@ -111,8 +86,8 @@ Promise.all([d3.json(us), d3.tsv(info)]).then(function(data) {
             d3.select('.tooltip')
                 .html('<span>' + d.city + '</span>')
                 .styles({
-                    'left': (d3.event.pageX-160) + 'px',
-                    'top': (d3.event.pageY - 60) + 'px'
+                    'left': (d3.event.pageX) + 'px',
+                    'top': (d3.event.pageY - 35) + 'px'
                 })
                 .transition()
                     .duration(500)
@@ -121,10 +96,7 @@ Promise.all([d3.json(us), d3.tsv(info)]).then(function(data) {
         .on('mouseout', function(d){
             d3.select(this)
                 .transition()
-                .duration(500)
-                    .attrs({
-                        'fill': 'red'
-                    })
+                .duration(200)
             d3.select('.tooltip')
                 .transition()
                     .duration(200)

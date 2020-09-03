@@ -1,8 +1,78 @@
+html {
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+}
+
+*, *:before, *:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+/* flexbox */
+.flex-container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.flex-row {
+    display: flex;
+}
+
+@media (max-width: 400px) {
+    .flex-row {
+        flex-direction: column;
+    }
+}
+
+.flex-item {
+    flex: 1 1 0;
+    position: relative;
+    margin: 20px 0 20px 20px;
+}
+
+.flex-row[data-margin="0"] .flex-item,
+.flex-row[data-margin="0"] .flex-item:last-child {
+    margin: 0;
+}
+
+div[data-layout="column"] {
+    display: flex;
+    flex-direction: column;
+}
+
+/* all evenly distributed cols */
+.flex-row .flex-item {
+    flex: 1 1 0;
+    position: relative;
+    margin: 20px 0 20px 20px;
+}
+
+.flex-row .flex-item:last-child {
+    margin-right: 20px;
+}
+
+.flex-item .flex-row .flex-item {
+    margin-top: 0;
+}
+
+.flex-item[data-weight="2"]{
+    flex: 2 2 40px;
+}
+
+.flex-item[data-weight="3"]{
+    flex: 3 3 40px;
+}
+
+.flex-item[data-weight="4"]{
+    flex: 4 4 40px;
+}
+
 /*-----------------------------------------------------------------------------------*\
     #Tooltip 
 \*-----------------------------------------------------------------------------------*/
-.tooltip,
-.over_tooltip {
+.tooltip {
     position: absolute;
     padding: 8px;
     background: rgba(255, 2555, 255, 0.75);
@@ -13,55 +83,12 @@
     pointer-events: none;
 }
 
-.tooltip p,
-.over_tooltip p {
+.tooltip p {
     margin-bottom: 3px;
 }
 
-.tooltip td,
-.over_tooltip td {
+.tooltip td {
     padding: 3px;
-}
-
-.btn-media-type {
-    margin-right: 3px;
-    text-align: center;
-    border-radius: 0;
-    background-color: #999;
-}
-
-.btn-media-type.active {
-    background-color: #00a9e1;
-}
-
-.btn-media-type:focus {
-    outline: 0;
-}
-
-.btn-media-type i {
-    font-size: 42px;
-    font-weight: bold;
-    color: #fff;
-    cursor: pointer;
-    transition: color .3s ease;
-}
-
-.btn-media-type i:hover {
-    color: #414141;
-}
-
-.btn-media-type i.active {
-    color: #fff;
-}
-
-
-.active-media-types {
-    min-height: 17px;
-    margin-bottom: 10px;
-}
-
-.active-media-types span {
-    display: none;
 }
 
 /*-----------------------------------------------------------------------------------*\
