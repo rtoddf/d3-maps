@@ -54,7 +54,7 @@ Promise.all([d3.json(us), d3.json(info)]).then(function(data) {
             'location': d.location,
             'latitude': d.latitude,
             'longitude': d.longitude,
-            'city': d.displayname
+            'displayname': d.displayname
         }
     })
 
