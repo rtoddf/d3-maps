@@ -1,0 +1,24 @@
+{
+  "name": "d3-maps",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "serve ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rtoddf/d3-maps.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/rtoddf/d3-maps/issues"
+  },
+  "homepage": "https://github.com/rtoddf/d3-maps#readme",
+  "devDependencies": {
+    "serve": "^14.2.6"
+  }
+}
